@@ -118,3 +118,11 @@ body {
 .placeName {
   font-weight: bold;
 }
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 50px;
+  border: 5px solid black;
+}
