@@ -3,24 +3,38 @@ body {
   background-repeat: repeat;
 }
 
-h2 {
-  margin-left: 200px;
-  /*margin-top: 550px;*/
-}
-
-
 #searchBox {
   width: 350px;
 }
 
 #logo {
-  width: 120px;
+  width: 90px;
+}
+
+#leftSidebar {
+  position: fixed;
+  top: 500px;
+  left: 0;
 }
 
 #rightSidebar {
-  position: fixed;
-  top: 1000px;
+  position: absolute;
+  top: 500px;
   right: 0px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    top: 500px;
+    bottom: 0;
+    z-index: 2;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
 }
 
 /* Sidebar navigation */
@@ -83,7 +97,8 @@ h2 {
 }
 
 .panel {
-  margin: 20px;
+  margin: 10px;
+  margin-left: 5%;
 }
 
 .userName {
@@ -98,4 +113,8 @@ h2 {
 .comment {
   /*color: white;*/
   background-color: (255, 0, 0, 0.5);
+}
+
+.placeName {
+  font-weight: bold;
 }
