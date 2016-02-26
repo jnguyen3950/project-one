@@ -1,0 +1,62 @@
+body {
+  background-image: url("http://www.dailypicsupdate.com/wp-content/uploads/2013/01/dark-red-plain-background.jpg");
+  background-repeat: repeat;
+}
+
+#searchBox {
+  width: 350px;
+}
+
+#logo {
+  width: 120px;
+}
+
+.navbar-brand {
+  padding: 0px;
+  margin: 0px;
+}
+
+.navbar-inverse {
+  border-width: 0px;
+  background-color: rgba(230, 0, 0, 0.7);
+}
+
+.carouselBlock {
+  margin-top: 100px;
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselImages {
+  /*position: absolute;*/
+  position: relative;
+  width: 1000px;
+}
+
+.centerEl {
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.carousel-caption {
+  top: 50px;
+}
+
+.btn-lg {
+  background-color: rgba(230, 0, 0, 0.7);
+}
+
+.fa-star {
+  color: yellow;
+}
+
+.whiteText {
+  color: white;
+}
+
+.comment {
+  color: white;
+  background-color: (255, 0, 0, 0.5);
+}
