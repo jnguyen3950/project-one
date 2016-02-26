@@ -1,7 +1,13 @@
 body {
-  background-image: url("http://www.dailypicsupdate.com/wp-content/uploads/2013/01/dark-red-plain-background.jpg");
+  /*background-image: url("http://www.dailypicsupdate.com/wp-content/uploads/2013/01/dark-red-plain-background.jpg");*/
   background-repeat: repeat;
 }
+
+h2 {
+  margin-left: 200px;
+  /*margin-top: 550px;*/
+}
+
 
 #searchBox {
   width: 350px;
@@ -9,6 +15,33 @@ body {
 
 #logo {
   width: 120px;
+}
+
+#rightSidebar {
+  position: fixed;
+  top: 1000px;
+  right: 0px;
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: rgba(230, 0, 0, 0.7);
+}
+
+.nav-sidebar > .active > a:hover {
+  color: #fff;
+  background-color: rgba(230, 0, 0, 1);
 }
 
 .navbar-brand {
@@ -46,17 +79,23 @@ body {
 
 .btn-lg {
   background-color: rgba(230, 0, 0, 0.7);
+  border-color: rgba(230, 0, 0, 1);
+}
+
+.panel {
+  margin: 20px;
+}
+
+.userName {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .fa-star {
   color: yellow;
 }
 
-.whiteText {
-  color: white;
-}
-
 .comment {
-  color: white;
+  /*color: white;*/
   background-color: (255, 0, 0, 0.5);
 }
