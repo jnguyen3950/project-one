@@ -22,7 +22,7 @@ var myPlaces = [
 ];
 
 //Place name block
-var place = document.getElementById('place2');
+var place = document.getElementById('place');
 var elPlace = document.createElement('span');
 var placeText = document.createTextNode(myPlaces[0].placeName);
 
@@ -46,4 +46,11 @@ el.appendChild(elText);
 inputReview.appendChild(el);
 //End Review block
 
-console.log(position);
+var testPlace = document.createElement('div');
+testPlace.setAttribute("class", "col-md-8 col-md-offset-2");
+
+var testPanel = document.createElement('div');
+testPanel.setAttribute("class", "panel panel-default");
+
+var testPanelHeading = document.createElement('div');
+testPanelHeading.setAttribute("class", "panel-heading");
