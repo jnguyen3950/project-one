@@ -23,49 +23,9 @@ body {
   right: 0px;
 }
 
-@media (min-width: 768px) {
-  .sidebar {
-    top: 500px;
-    bottom: 0;
-    z-index: 2;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
-    border-right: 1px solid #eee;
-  }
-}
-
-/* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:focus {
-  color: #fff;
-  background-color: rgba(230, 0, 0, 0.7);
-}
-
-.nav-sidebar > .active > a:hover {
-  color: #fff;
-  background-color: rgba(230, 0, 0, 1);
-}
-
 .navbar-brand {
   padding: 0px;
   margin: 0px;
-}
-
-.navbar-inverse {
-  border-width: 0px;
-  background-color: rgba(230, 0, 0, 0.7);
 }
 
 .carouselBlock {
@@ -97,8 +57,8 @@ body {
 }
 
 .panel {
-  margin: 10px;
-  margin-left: 5%;
+  /*margin: 10px;
+  margin-left: 5%;*/
 }
 
 .userName {
@@ -117,6 +77,10 @@ body {
 
 .placeName {
   font-weight: bold;
+}
+
+.jumbotron {
+  margin-top: 80px;
 }
 
 .box {
