@@ -2,22 +2,26 @@ var myPlaces = [
   {
     placeName: "Hometown",
     star: 4,
+    picture: "restaurant1.jpg",
     info: "Vestibulum ante vulputate parturient lacinia odio quam parturient et fringilla ac tempor parturient ultricies.",
     refLink: "Restaurant.html"
   },
   {
     placeName: "Shrimp",
     star: 2.5,
+    picture: "restaurant2.jpg",
     info: "Lacinia ante erat neque non justo malesuada per nostra ipsum curae adipiscing euismod consequat."
   },
   {
     placeName: "Toasted",
     star: 5,
+    picture: "restaurant3.jpg",
     info: "Nunc ridiculus enim praesent cubilia sed enim dignissim convallis class est vestibulum ullamcorper."
   },
   {
     placeName: "Bubble",
     star: 2,
+    picture: "restaurant4.jpg",
     info: "Gravida condimentum commodo magnis tristique scelerisque penatibus etiam donec et interdum aliquam imperdiet vivamus dignissim."
   }
 ];
@@ -37,7 +41,8 @@ for(var index = 0; index < 4; index++) {
 
   var mediaImg = document.createElement("img");
   mediaImg.setAttribute("class", "media-object");
-  mediaImg.setAttribute("src", "images/yelp-logo.png");
+  mediaImg.setAttribute("src", "images/"+myPlaces[index].picture);
+  mediaImg.setAttribute("width", "300px");
 
   link.appendChild(mediaImg);
   mediaHeading.appendChild(link);
