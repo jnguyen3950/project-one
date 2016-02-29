@@ -1,4 +1,4 @@
-var popular1 = [
+var myPlaces = [
   {
     placeName: "Hometown",
     star: 4,
@@ -21,20 +21,29 @@ var popular1 = [
   }
 ];
 
+//Place name block
+var place = document.getElementById('place2');
+var elPlace = document.createElement('span');
+var placeText = document.createTextNode(myPlaces[0].placeName);
+
+elPlace.appendChild(placeText);
+place.appendChild(elPlace);
+//End place name
+
+//Star block
+for (var i = 1; i <= myPlaces[0].star; i++) {
+  var position = document.getElementById('reviewStar'+i);
+  position.setAttribute("class", "fa fa-star");
+}
+//End Star block
+
 // Review block
 var inputReview = document.getElementById('review1');
 var el = document.createElement('p');
-var elText = document.createTextNode('This is the review.');
+var elText = document.createTextNode(myPlaces[0].info);
 
 el.appendChild(elText);
 inputReview.appendChild(el);
 //End Review block
-
-// Star block
-
-for (var i = 1; i <= popular1[1].star; i++) {
-  var position = document.getElementById('reviewStar'+i);
-  position.setAttribute("class", "fa fa-star");
-}
 
 console.log(position);
