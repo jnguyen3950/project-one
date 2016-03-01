@@ -99,3 +99,24 @@ for(var index = 0; index < 4; index++) {
   inputReview.appendChild(el);
   // End Review block
 }
+
+var resultPosition = document.getElementById('searchResult');
+
+function displayResult(object) {
+
+  var resultBox = document.createElement('p');
+  var resultText = document.createTextNode(object.placeName + object.info);
+
+  resultBox.appendChild(resultText);
+  resultPosition.appendChild(resultBox);
+
+  console.log("This is the result" + resultText);
+}
+
+var search = document.getElementById('search');
+search.addEventListener('click', function() {
+  var input = document.getElementById('searchBox');
+  // if(myPlaces[0].placeName == )
+  displayResult(myPlaces[0]);
+  console.log(input);
+}, false);
