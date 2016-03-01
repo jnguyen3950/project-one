@@ -100,31 +100,46 @@ for(var index = 0; index < 4; index++) {
   // End Review block
 }
 
+var resultImagePosition = document.getElementById('searchImage');
 var resultPosition = document.getElementById('searchResult');
+var found = false;
 
 function displayResult(object) {
+  var resultImage = document.createElement("img");
+  resultImage.setAttribute('class', 'media-object');
+  resultImage.setAttribute('src', 'images/' + object.picture);
+  resultImage.setAttribute('alt', 'Result picture.');
+  resultImage.setAttribute('width', '300px');
 
-  var resultBox = document.createElement('p');
-  var resultText = document.createTextNode(object.placeName + object.info);
+  console.log(resultImagePosition);
+  console.log(resultImage);
 
-  resultBox.appendChild(resultText);
-  resultPosition.appendChild(resultBox);
+  var resultHeading = document.createElement('h2');
+  resultHeading.setAttribute('class', 'media-heading');
+  var resultHeadingText = document.createTextNode(object.placeName);
+  resultHeading.appendChild(resultHeadingText);
 
-  console.log("This is the result" + resultText);
+  var resultPara = document.createElement('p');
+  var resultText = document.createTextNode(object.info);
+  resultPara.appendChild(resultText);
+
+  resultImagePosition.appendChild(resultImage);
+  resultPosition.appendChild(resultHeading);
+  resultPosition.appendChild(resultPara);
 }
 
-var search = document.getElementById('search');
 search.addEventListener('click', function() {
   var input = document.getElementById('searchBox');
-
   for(var i = 0; i < myPlaces.length; i++) {
     if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase()) {
       displayResult(myPlaces[i]);
+      found = true;
     }
-    else {
-      console.log("No result");
-    }
-    console.log(input.value);
   }
+  if(found == false) {
+    var noResultText = document.createTextNode('No result found.');
 
+    resultBox.appendChild(noResultText);
+    resultPosition.appendChild(resultBox);
+  }
 }, false);
