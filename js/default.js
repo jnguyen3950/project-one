@@ -28,7 +28,7 @@ var myPlaces = [
 
 //Generating Media block
 for(var index = 0; index < 4; index++) {
-  console.log(myPlaces[index]);
+  // console.log(myPlaces[index]);
 
   var mediaInit = document.createElement("div");
   mediaInit.setAttribute("class", "media");
@@ -116,7 +116,15 @@ function displayResult(object) {
 var search = document.getElementById('search');
 search.addEventListener('click', function() {
   var input = document.getElementById('searchBox');
-  // if(myPlaces[0].placeName == )
-  displayResult(myPlaces[0]);
-  console.log(input);
+
+  for(var i = 0; i < myPlaces.length; i++) {
+    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase()) {
+      displayResult(myPlaces[i]);
+    }
+    else {
+      console.log("No result");
+    }
+    console.log(input.value);
+  }
+
 }, false);
