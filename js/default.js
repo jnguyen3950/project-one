@@ -100,19 +100,25 @@ for(var index = 0; index < 4; index++) {
   // End Review block
 }
 
+// Media that display search result
 var resultImagePosition = document.getElementById('searchImage');
 var resultPosition = document.getElementById('searchResult');
 var found = false;
 
 function displayResult(object) {
+
+  while(resultPosition.firstChild) {
+    resultPosition.removeChild(resultPosition.firstChild);
+  }
+  while(resultImagePosition.firstChild) {
+    resultImagePosition.removeChild(resultImagePosition.firstChild);
+  }
+
   var resultImage = document.createElement("img");
   resultImage.setAttribute('class', 'media-object');
   resultImage.setAttribute('src', 'images/' + object.picture);
   resultImage.setAttribute('alt', 'Result picture.');
   resultImage.setAttribute('width', '300px');
-
-  console.log(resultImagePosition);
-  console.log(resultImage);
 
   var resultHeading = document.createElement('h2');
   resultHeading.setAttribute('class', 'media-heading');
@@ -138,8 +144,8 @@ search.addEventListener('click', function() {
   }
   if(found == false) {
     var noResultText = document.createTextNode('No result found.');
-
     resultBox.appendChild(noResultText);
     resultPosition.appendChild(resultBox);
   }
 }, false);
+// End media search result
