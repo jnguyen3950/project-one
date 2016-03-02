@@ -28,7 +28,6 @@ var myPlaces = [
 
 //Generating Media block
 for(var index = 0; index < 4; index++) {
-  // console.log(myPlaces[index]);
 
   var mediaInit = document.createElement("div");
   mediaInit.setAttribute("class", "media");
