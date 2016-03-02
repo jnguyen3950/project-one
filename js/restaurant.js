@@ -1,3 +1,20 @@
+restaurantInfo = [
+  {
+    Type: "Restaurant",
+    Price: "$$",
+    Open_now: "Yes"
+  },
+  {
+    Mon: "9am - 10pm",
+    Tues:  "9am - 10pm",
+    Wed: "9am - 10pm",
+    Thu: "9am - 10pm",
+    Fri: "9am - 10pm",
+    Sat: "9am - 10pm",
+    Sun: "9am - 10pm"
+  }
+]
+
 userComment = [
   {
     userName: "Justin",
@@ -70,5 +87,14 @@ function displayReview () {
     i = i + 1;
   }
 }
-
 displayReview();
+//End generate blocks
+
+//Business info
+var businessInfo = document.getElementById('businessInfo');
+for (info in restaurantInfo[0]) {
+  var businessType = document.createElement('li');
+  var typeText = document.createTextNode(info + " : " + restaurantInfo[0][info]);
+  businessType.appendChild(typeText);
+  businessInfo.appendChild(businessType);
+}
