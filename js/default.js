@@ -8,7 +8,7 @@ var myPlaces = [
   },
   {
     placeName: "Shrimp",
-    star: 2.5,
+    star: 3,
     picture: "restaurant2.jpg",
     info: "Lacinia ante erat neque non justo malesuada per nostra ipsum curae adipiscing euismod consequat."
   },
@@ -20,7 +20,7 @@ var myPlaces = [
   },
   {
     placeName: "Bubble",
-    star: 2,
+    star: 4,
     picture: "restaurant4.jpg",
     info: "Gravida condimentum commodo magnis tristique scelerisque penatibus etiam donec et interdum aliquam imperdiet vivamus dignissim."
   }
@@ -134,6 +134,7 @@ function displayResult(object) {
   resultPosition.appendChild(resultPara);
 }
 
+var search = document.getElementById('search');
 search.addEventListener('click', function() {
   var input = document.getElementById('searchBox');
   for(var i = 0; i < myPlaces.length; i++) {

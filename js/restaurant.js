@@ -31,22 +31,15 @@ submit.addEventListener('click', function() {
     }
   }
   newComment.info = reviewInput.value;
-  console.log(newComment);
-  console.log(userComment[0]);
-  console.log(userComment);
   userComment.push(newComment);
-  console.log(userComment);
   displayReview();
 })
 //End review modal block
 
 //Generate review blocks
+var i = 0;
 function displayReview () {
-  // while(reviewPosition.firstChild) {
-  //   reviewPosition.removeChild(reviewPosition.firstChild);
-  // }
-
-  for (var i = 0; i < userComment.length; i++) {
+  while (i < userComment.length) {
     var reviewPosition = document.getElementById('userComment');
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
@@ -74,5 +67,8 @@ function displayReview () {
     comment.appendChild(commenText);
     reviewPanel.appendChild(comment);
     reviewPosition.appendChild(reviewPanel);
+    i = i + 1;
   }
 }
+
+displayReview();
