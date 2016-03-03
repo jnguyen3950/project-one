@@ -99,19 +99,29 @@ for(var index = 0; index < 4; index++) {
   // End Review block
 }
 
+//Search engine
+function searchData() {
+  var found = false;
+  var input = document.getElementById('searchBox');
+  for(var i = 0; i < myPlaces.length; i++) {
+    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase()) {
+      displayResult(myPlaces[i]);
+      found = true;
+    }
+  }
+  if(found == false) {
+    clearResult(resultPosition, resultImagePosition);
+    var noResultText = document.createTextNode('No result found.');
+    resultPosition.appendChild(noResultText);
+  }
+}
+
 // Media that display search result
 var resultImagePosition = document.getElementById('searchImage');
 var resultPosition = document.getElementById('searchResult');
-var found = false;
 
 function displayResult(object) {
-
-  while(resultPosition.firstChild) {
-    resultPosition.removeChild(resultPosition.firstChild);
-  }
-  while(resultImagePosition.firstChild) {
-    resultImagePosition.removeChild(resultImagePosition.firstChild);
-  }
+  clearResult(resultPosition, resultImagePosition);
 
   var resultImage = document.createElement("img");
   resultImage.setAttribute('class', 'media-object');
@@ -134,23 +144,25 @@ function displayResult(object) {
 }
 //End media search result
 
+//Clear search result node function
+function clearResult(resultText, resultImage) {
+  while(resultText.firstChild) {
+    resultText.removeChild(resultText.firstChild);
+  }
+  while(resultImage.firstChild) {
+    resultImage.removeChild(resultImage.firstChild);
+  }
+}
+
 //Search button
 search.addEventListener('click', function() {
-  var input = document.getElementById('searchBox');
-  for(var i = 0; i < myPlaces.length; i++) {
-    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase()) {
-      displayResult(myPlaces[i]);
-      found = true;
-    }
-  }
-  if(found == false) {
-    while(!resultPosition.firstChild) {
-      var noResultText = document.createTextNode('No result found.');
-      resultPosition.appendChild(noResultText);
-    }
-  }
+  searchData();
 }, false);
 
-function notSubmit() {
-  return false;
-}
+//Search box
+document.getElementById('searchBox').addEventListener('keypress', function(event) {
+  if (event.keyCode == 13) {
+    searchData();
+    event.preventDefault();
+  }
+})
