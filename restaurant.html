@@ -4,10 +4,9 @@
   <title>Project: myYelp!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="css/carousel.css"> -->
-  <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="stylesheet" href="css/default.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <!-- <link rel="stylesheet" href="css/dashboard.css"> -->
+  <!-- <link rel="stylesheet" href="css/default.css"> -->
+  <!-- <link rel="stylesheet" href="css/navbar.css"> -->
 </head>
 <body>
   <!-- Fixed navbar -->
@@ -28,7 +27,7 @@
           <li>
             <form class="navbar-form" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" id="searchBox" placeholder="Restauntrant, candy shop, and whatnot..">
+                <input type="text" class="form-control" id="searchBox" placeholder="Restaurant, candy shop, and whatnot..">
               </div>
               <button type="button" class="btn btn-default" id="search">Search</button>
             </form>
@@ -56,8 +55,8 @@
   <!-- End navbar -->
 
   <!-- Search result -->
-  <div>
-    <div class="media" id="searchMedia">
+  <div class="container">
+    <div class="media text-center" id="searchMedia">
       <a class="media-left" href="restaurant.html" id="searchImage"></a>
       <div class="media-body" id="searchResult"></div>
     </div>
@@ -165,6 +164,9 @@
         </ul>
       </div>
 
+      <!-- Review boxes -->
+      <div class="col-md-8 col-md-offset-2" id="userComment"></div>
+
       <!-- Right side bar -->
       <div id="rightSidebar" class="col-md-2 col-md-offset-10 hidden-sm sidebar">
         <ul class="nav nav-sidebar" id="mediaBlock">
@@ -172,29 +174,12 @@
         </ul>
       </div>
 
-      <!-- Review boxes -->
-      <div class="col-md-8 col-md-offset-2"></div>
-      <!-- End review boxes -->
-
-      <!-- Review boxes -->
-      <div class="col-md-8 col-md-offset-2" id="userComment">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span class="userName">Justin</span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </div>
-          <div class="panel-body">This page is temporarily disabled by the site administrator for some reason.</div>
-        </div>
-      </div>
     </div>
   </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="js/default.js"></script>
+  <script src="js/restaurant.js"></script>
 </body>
 </html>

@@ -4,7 +4,6 @@
   <title>Project: myYelp!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="css/carousel.css"> -->
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/default.css">
   <link rel="stylesheet" href="css/navbar.css">
@@ -28,7 +27,7 @@
           <li>
             <form class="navbar-form" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" id="searchBox" placeholder="Restauntrant, candy shop, and whatnot..">
+                <input type="text" class="form-control" id="searchBox" placeholder="Restaurant, candy shop, and whatnot..">
               </div>
               <button type="button" class="btn btn-default" id="search">Search</button>
             </form>
@@ -56,8 +55,8 @@
   <!-- End navbar -->
 
   <!-- Search result -->
-  <div>
-    <div class="media" id="searchMedia">
+  <div class="container">
+    <div class="media text-center" id="searchMedia">
       <a class="media-left" href="restaurant.html" id="searchImage"></a>
       <div class="media-body" id="searchResult"></div>
     </div>
@@ -88,22 +87,13 @@
         </ul>
       </div><!--End Left sidebar -->
 
-      <!-- Right side bar -->
-      <div id="rightSidebar" class="col-md-2 col-md-offset-10 hidden-sm sidebar">
-        <ul class="nav nav-sidebar">
-          <li class="active"><a>Nearby Places:</a></li>
-        </ul>
+      <!-- Review boxes -->
+      <div class="col-md-8 col-md-offset-2" id="mediaBlock">
+        <h1>Recent popular reviews:</h1>
       </div>
+      <!-- End review boxes -->
     </div>
-  </div><!--End Right sidebar -->
-
-  <div class="col-md-8 col-md-offset-2">
-    <h1>Recent popular reviews:</h1>
   </div>
-
-  <!-- Review boxes -->
-  <div class="col-md-8 col-md-offset-2" id="mediaBlock"></div>
-  <!-- End review boxes -->
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
