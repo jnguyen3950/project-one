@@ -1,4 +1,3 @@
-// ---------- Restaurant Database and its functionalities ----------
 var restaurantInfo = [
   {
     Type: "Restaurant",
@@ -110,4 +109,3 @@ for (info in restaurantInfo[1]) {
   day.appendChild(typeText);
   businessHours.appendChild(day);
 }
-//End restaurant js

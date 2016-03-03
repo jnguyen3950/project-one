@@ -132,8 +132,9 @@ function displayResult(object) {
   resultPosition.appendChild(resultHeading);
   resultPosition.appendChild(resultPara);
 }
+//End media search result
 
-var search = document.getElementById('search');
+//Search button
 search.addEventListener('click', function() {
   var input = document.getElementById('searchBox');
   for(var i = 0; i < myPlaces.length; i++) {
@@ -143,9 +144,13 @@ search.addEventListener('click', function() {
     }
   }
   if(found == false) {
-    var noResultText = document.createTextNode('No result found.');
-    resultBox.appendChild(noResultText);
-    resultPosition.appendChild(resultBox);
+    while(!resultPosition.firstChild) {
+      var noResultText = document.createTextNode('No result found.');
+      resultPosition.appendChild(noResultText);
+    }
   }
 }, false);
-// End media search result
+
+function notSubmit() {
+  return false;
+}

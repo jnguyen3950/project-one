@@ -25,11 +25,11 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="index.html">Home</a></li>
           <li>
-            <form class="navbar-form" role="search">
-              <div class="form-group">
+            <form class="navbar-form">
+              <div class="form-group" role="search" onsubmit="return notSubmit();">
                 <input type="text" class="form-control" id="searchBox" placeholder="Restaurant, candy shop, and whatnot..">
+                <input type="button" class="btn btn-default" value="Search" id="search"></input>
               </div>
-              <button type="button" class="btn btn-default" id="search">Search</button>
             </form>
           </li>
         </ul>
