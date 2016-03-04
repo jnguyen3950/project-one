@@ -58,8 +58,6 @@ submit.addEventListener('click', function() {
 var index = 0;
 function displayReview () {
   while (index < userComment.length) {
-    console.log("This is index: " + index);
-    console.log("This is object array: " + userComment.length);
     var reviewPosition = document.getElementById('userComment');
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
@@ -72,12 +70,14 @@ function displayReview () {
     uName.appendChild(nameText);
     reviewPanelHeading.appendChild(uName);
 
+    var breakLine = document.createElement('div');
     for (var j = 0; j < userComment[index].star; j++) {
       var reviewStar = document.createElement('span');
       reviewStar.setAttribute('class', 'fa fa-star');
-      reviewPanelHeading.appendChild(reviewStar);
+      breakLine.appendChild(reviewStar);
     }
 
+    reviewPanelHeading.appendChild(breakLine);
     reviewPanel.appendChild(reviewPanelHeading);
 
     var comment = document.createElement('div');
@@ -109,3 +109,9 @@ for (info in restaurantInfo[1]) {
   day.appendChild(typeText);
   businessHours.appendChild(day);
 }
+
+var options = document.getElementById('option4');
+options.addEventListener('click', function() {
+  console.log('Like this!')
+})
+console.log(options);
