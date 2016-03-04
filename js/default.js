@@ -180,3 +180,19 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
     event.preventDefault();
   }
 })
+
+function toggle(value, element) {
+  if (element.classList.contains("hide")) {
+    element.classList.remove("hide");
+  }
+  else {
+    element.classList.add("hide");
+  }
+}
+
+var addNewButton = document.getElementById('addNewPlace');
+var newPlaceForm = document.getElementById('newPlaceForm');
+addNewButton.addEventListener('click', function() {
+  toggle("hide", newPlaceForm)
+  console.log('heard');
+})
