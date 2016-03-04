@@ -1,6 +1,7 @@
 var myPlaces = [
   {
     placeName: "Hometown",
+    placeType: "restaurant",
     star: 4,
     picture: "restaurant1.jpg",
     info: "Vestibulum ante vulputate parturient lacinia odio quam parturient et fringilla ac tempor parturient ultricies.",
@@ -8,18 +9,21 @@ var myPlaces = [
   },
   {
     placeName: "Shrimp",
+    placeType: "bar",
     star: 3,
     picture: "restaurant2.jpg",
     info: "Lacinia ante erat neque non justo malesuada per nostra ipsum curae adipiscing euismod consequat."
   },
   {
     placeName: "Toasted",
+    placeType: "restaurant",
     star: 5,
     picture: "restaurant3.jpg",
     info: "Nunc ridiculus enim praesent cubilia sed enim dignissim convallis class est vestibulum ullamcorper."
   },
   {
     placeName: "Bubble",
+    placeType: "bar",
     star: 4,
     picture: "restaurant4.jpg",
     info: "Gravida condimentum commodo magnis tristique scelerisque penatibus etiam donec et interdum aliquam imperdiet vivamus dignissim."
@@ -101,33 +105,38 @@ for(var index = 0; index < 4; index++) {
 
 //Search engine
 function searchData() {
+  clearResult(resultResult);
   var found = false;
   var input = document.getElementById('searchBox');
   for(var i = 0; i < myPlaces.length; i++) {
-    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase()) {
+    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase() ||
+        myPlaces[i].placeType.toLowerCase() == input.value.toLowerCase()) {
       displayResult(myPlaces[i]);
       found = true;
     }
   }
   if(found == false) {
-    clearResult(resultPosition, resultImagePosition);
+    var noResultEl = document.createElement('h1')
     var noResultText = document.createTextNode('No result found.');
-    resultPosition.appendChild(noResultText);
+    noResultEl.appendChild(noResultText);
+    resultResult.appendChild(noResultEl);
   }
 }
 
 // Media that display search result
-var resultImagePosition = document.getElementById('searchImage');
-var resultPosition = document.getElementById('searchResult');
+var resultResult = document.getElementById('searchBlock');
 
 function displayResult(object) {
-  clearResult(resultPosition, resultImagePosition);
-
   var resultImage = document.createElement("img");
   resultImage.setAttribute('class', 'media-object');
   resultImage.setAttribute('src', 'images/' + object.picture);
   resultImage.setAttribute('alt', 'Result picture.');
   resultImage.setAttribute('width', '300px');
+
+  var mediaImage = document.createElement('a');
+  mediaImage.setAttribute('class', 'media-left');
+  mediaImage.setAttribute('href', 'restaurant.html');
+  mediaImage.appendChild(resultImage);
 
   var resultHeading = document.createElement('h2');
   resultHeading.setAttribute('class', 'media-heading');
@@ -138,24 +147,29 @@ function displayResult(object) {
   var resultText = document.createTextNode(object.info);
   resultPara.appendChild(resultText);
 
-  resultImagePosition.appendChild(resultImage);
-  resultPosition.appendChild(resultHeading);
-  resultPosition.appendChild(resultPara);
+  var mediaSearchBody = document.createElement('div');
+  mediaSearchBody.setAttribute('class', 'media-body');
+  mediaSearchBody.appendChild(resultHeading);
+  mediaSearchBody.appendChild(resultPara);
+
+  var mediaBlock = document.createElement('div');
+  mediaBlock.setAttribute('class', 'media text-center');
+  mediaBlock.appendChild(mediaImage);
+  mediaBlock.appendChild(mediaSearchBody);
+
+  resultResult.appendChild(mediaBlock);
 }
 //End media search result
 
 //Clear search result node function
-function clearResult(resultText, resultImage) {
-  while(resultText.firstChild) {
-    resultText.removeChild(resultText.firstChild);
-  }
-  while(resultImage.firstChild) {
-    resultImage.removeChild(resultImage.firstChild);
+function clearResult(result) {
+  while(result.firstChild) {
+    result.removeChild(result.firstChild);
   }
 }
 
 //Search button
-search.addEventListener('click', function() {
+document.getElementById('search').addEventListener('click', function() {
   searchData();
 }, false);
 
