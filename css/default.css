@@ -15,28 +15,6 @@ body {
   right: 0px;
 }
 
-.carouselBlock {
-  margin-top: 100px;
-  position: relative;
-  height: 400px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carouselImages {
-  position: relative;
-  width: 1000px;
-}
-
-.centerEl {
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.carousel-caption {
-  top: 50px;
-}
-
 .btn-lg {
   background-color: rgba(230, 0, 0, 0.7);
   border-color: rgba(230, 0, 0, 1);
