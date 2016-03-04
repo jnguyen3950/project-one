@@ -56,9 +56,9 @@ submit.addEventListener('click', function() {
 
 //Generate review blocks
 var index = 0;
+var reviewPosition = document.getElementById('userComment');
 function displayReview () {
   while (index < userComment.length) {
-    var reviewPosition = document.getElementById('userComment');
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
     var reviewPanelHeading = document.createElement('div');
@@ -76,9 +76,10 @@ function displayReview () {
       reviewStar.setAttribute('class', 'fa fa-star');
       breakLine.appendChild(reviewStar);
     }
-
     reviewPanelHeading.appendChild(breakLine);
     reviewPanel.appendChild(reviewPanelHeading);
+
+    addReviewTag(reviewPosition);
 
     var comment = document.createElement('div');
     comment.setAttribute('class', 'panel-body');
@@ -110,8 +111,66 @@ for (info in restaurantInfo[1]) {
   businessHours.appendChild(day);
 }
 
-var options = document.getElementById('option4');
-options.addEventListener('click', function() {
-  console.log('Like this!')
-})
-console.log(options);
+// <!-- review button -->
+// <div class="btn-group pull-right" data-toggle="buttons">
+//   <label class="btn btn-default">
+//     <input type="radio"><span class="fa fa-smile-o"> Funny</span>
+//   </label>
+//   <label class="btn btn-default">
+//     <input type="radio"><span class="fa fa-thumbs-o-up"> Helpful</span>
+//   </label>
+//   <label class="btn btn-default">
+//     <input type="radio"><span class="fa fa-thumbs-o-down"> Not Helpful</span>
+//   </label>
+// </div>
+
+function addReviewTag (targetNode) {
+  var tagSet = document.createElement('div');
+  tagSet.setAttribute('class', 'btn-group pull-right');
+  tagSet.setAttribute('data-toggle', 'buttons');
+
+  for (var i = 0; i < 3; i++) {
+    var tagLabel = document.createElement('label');
+    tagLabel.setAttribute('class', 'btn btn-default');
+
+    // Review tag button 1
+    if (i == 0) {
+      var tagButton1 = document.createElement('input');
+      tagButton1.setAttribute('type', 'radio');
+      var smile = document.createElement('span');
+      smile.setAttribute('class', 'fa fa-smile-o');
+      var smileText = document.createTextNode(' Funny');
+      smile.appendChild(smileText);
+      tagButton1.appendChild(smile);
+      tagLabel.appendChild(tagButton1);
+      tagSet.appendChild(tagLabel);
+    }
+
+    // Review tag button 2
+    if (i == 1) {
+      var tagButton2 = document.createElement('input');
+      tagButton2.setAttribute('type', 'radio');
+      var thumbsUp = document.createElement('span');
+      thumbsUp.setAttribute('class', 'fa fa-thumbs-o-up');
+      var thumbsUpText = document.createTextNode(' Helpful');
+      thumbsUp.appendChild(thumbsUpText);
+      tagButton2.appendChild(thumbsUp);
+      tagLabel.appendChild(tagButton2);
+      tagSet.appendChild(tagLabel);
+    }
+
+    // Review tag button 3
+    if (i == 2) {
+      var tagButton3 = document.createElement('input');
+      tagButton3.setAttribute('type', 'radio');
+      var thumbsDown = document.createElement('span');
+      thumbsDown.setAttribute('class', 'fa fa-thumbs-o-down');
+      var thumbsDownText = document.createTextNode(' Not Helpful');
+      thumbsDown.appendChild(thumbsDownText);
+      tagButton3.appendChild(thumbsDown);
+      tagLabel.appendChild(tagButton3);
+      tagSet.appendChild(tagLabel);
+    }
+  }
+  targetNode.appendChild(tagSet);
+}

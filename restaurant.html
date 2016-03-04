@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/default.css">
-  <link rel="stylesheet" href="css/navbar.css">
+  <!-- <link rel="stylesheet" href="css/navbar.css"> -->
 </head>
 <body>
   <!-- Fixed navbar -->
@@ -58,15 +58,15 @@
   <div class="container" id="searchBlock"></div>
 
   <!-- review button -->
-  <div class="btn-group pull-right" data-toggle="buttons" id="option4">
+  <div class="btn-group pull-right" data-toggle="buttons">
     <label class="btn btn-default">
-      <input type="radio" name="options" id="option1" autocomplete="off"><span class="fa fa-smile-o"> Funny</span>
+      <input type="radio"><span class="fa fa-smile-o"> Funny</span>
     </label>
     <label class="btn btn-default">
-      <input type="radio" name="options" id="option2" autocomplete="off"><span class="fa fa-thumbs-o-up"> Helpful</span>
+      <input type="radio"><span class="fa fa-thumbs-o-up"> Helpful</span>
     </label>
     <label class="btn btn-default">
-      <input type="radio" name="options" id="option3" autocomplete="off"><span class="fa fa-thumbs-o-down"> Not Helpful</span>
+      <input type="radio"><span class="fa fa-thumbs-o-down"> Not Helpful</span>
     </label>
   </div>
 
@@ -170,9 +170,11 @@
         </ul>
       </div>
       <!-- Review boxes -->
-      <div class="col-md-7 col-md-offset-2" id="userComment"></div>
+      <div class="col-md-7 col-md-offset-2" id="userComment">
+      </div>
+
       <!-- Right side bar -->
-      <div id="rightSidebar" class="col-md-3 col-md-offset-9 hidden-sm sidebar">
+      <div id="rightSidebar" class="col-md-3 col-md-offset-9 hidden-sm sidebar hidden">
         <ul class="nav nav-sidebar" id="mediaBlock">
           <li class="active"><a>Nearby Places:</a></li>
         </ul>
