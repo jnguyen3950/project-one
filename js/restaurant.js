@@ -141,7 +141,7 @@ function addReviewTag (targetNode) {
       smile.setAttribute('class', 'fa fa-smile-o');
       var smileText = document.createTextNode(' Funny');
       smile.appendChild(smileText);
-      tagButton1.appendChild(smile);
+      tagLabel.appendChild(smile);
       tagLabel.appendChild(tagButton1);
       tagSet.appendChild(tagLabel);
     }
@@ -154,7 +154,7 @@ function addReviewTag (targetNode) {
       thumbsUp.setAttribute('class', 'fa fa-thumbs-o-up');
       var thumbsUpText = document.createTextNode(' Helpful');
       thumbsUp.appendChild(thumbsUpText);
-      tagButton2.appendChild(thumbsUp);
+      tagLabel.appendChild(thumbsUp);
       tagLabel.appendChild(tagButton2);
       tagSet.appendChild(tagLabel);
     }
@@ -167,8 +167,8 @@ function addReviewTag (targetNode) {
       thumbsDown.setAttribute('class', 'fa fa-thumbs-o-down');
       var thumbsDownText = document.createTextNode(' Not Helpful');
       thumbsDown.appendChild(thumbsDownText);
-      tagButton3.appendChild(thumbsDown);
       tagLabel.appendChild(tagButton3);
+      tagLabel.appendChild(thumbsDown);
       tagSet.appendChild(tagLabel);
     }
   }
