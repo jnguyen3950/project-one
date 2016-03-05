@@ -111,19 +111,6 @@ for (info in restaurantInfo[1]) {
   businessHours.appendChild(day);
 }
 
-// <!-- review button -->
-// <div class="btn-group pull-right" data-toggle="buttons">
-//   <label class="btn btn-default">
-//     <input type="radio"><span class="fa fa-smile-o"> Funny</span>
-//   </label>
-//   <label class="btn btn-default">
-//     <input type="radio"><span class="fa fa-thumbs-o-up"> Helpful</span>
-//   </label>
-//   <label class="btn btn-default">
-//     <input type="radio"><span class="fa fa-thumbs-o-down"> Not Helpful</span>
-//   </label>
-// </div>
-
 function addReviewTag (targetNode) {
   var tagSet = document.createElement('div');
   tagSet.setAttribute('class', 'btn-group pull-right');

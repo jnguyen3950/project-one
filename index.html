@@ -62,8 +62,8 @@
     <div class="jumbotron text-center">
         <h1>Found a new place?</h1>
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add it to our collection</a>
-        <form class="form-horizontal" id="newPlaceForm">
+        <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
+        <form class="form-horizontal hide" id="newPlaceForm">
           <div class="form-group">
             <label class="col-sm-2 control-label">Place Name:</label>
             <div class="col-sm-10">
@@ -76,6 +76,7 @@
               <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
             </div>
           </div>
+          <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
         </form>
       </div>
   </div>

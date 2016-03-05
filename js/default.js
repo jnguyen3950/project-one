@@ -31,77 +31,80 @@ var myPlaces = [
 ];
 
 //Generating Media block
-for(var index = 0; index < 4; index++) {
+function listReview() {
+  for(var index = 0; index < myPlaces.length; index++) {
 
-  var mediaInit = document.createElement("div");
-  mediaInit.setAttribute("class", "media");
+    var mediaInit = document.createElement("div");
+    mediaInit.setAttribute("class", "media");
 
-  var mediaHeading = document.createElement("div");
-  mediaHeading.setAttribute("class", "media-left media-middle");
+    var mediaHeading = document.createElement("div");
+    mediaHeading.setAttribute("class", "media-left media-middle");
 
-  var link = document.createElement("a");
-  link.setAttribute("href", "restaurant.html");
+    var link = document.createElement("a");
+    link.setAttribute("href", "restaurant.html");
 
-  var mediaImg = document.createElement("img");
-  mediaImg.setAttribute("class", "media-object");
-  mediaImg.setAttribute("src", "images/"+myPlaces[index].picture);
-  mediaImg.setAttribute("width", "300px");
+    var mediaImg = document.createElement("img");
+    mediaImg.setAttribute("class", "media-object");
+    mediaImg.setAttribute("src", "images/"+myPlaces[index].picture);
+    mediaImg.setAttribute("width", "300px");
 
-  link.appendChild(mediaImg);
-  mediaHeading.appendChild(link);
-  mediaInit.appendChild(mediaHeading);
+    link.appendChild(mediaImg);
+    mediaHeading.appendChild(link);
+    mediaInit.appendChild(mediaHeading);
 
-  var mediaBody = document.createElement("div");
-  mediaBody.setAttribute("class", "media-body");
+    var mediaBody = document.createElement("div");
+    mediaBody.setAttribute("class", "media-body");
 
-  var mediaH3 = document.createElement("h3");
-  mediaH3.setAttribute("class", "media-heading");
-  mediaH3.setAttribute("id", "mediaHeader"+index);
+    var mediaH3 = document.createElement("h3");
+    mediaH3.setAttribute("class", "media-heading");
+    mediaH3.setAttribute("id", "mediaHeader"+index);
 
-  mediaBody.appendChild(mediaH3);
+    mediaBody.appendChild(mediaH3);
 
-  for(var i = 1; i <= 5; i++) {
-    var mediaStar = document.createElement("span");
-    mediaStar.setAttribute("id", "reviewStar"+(i+(index*5)));
+    for(var i = 1; i <= 5; i++) {
+      var mediaStar = document.createElement("span");
+      mediaStar.setAttribute("id", "reviewStar"+(i+(index*5)));
 
-    mediaBody.appendChild(mediaStar);
+      mediaBody.appendChild(mediaStar);
+    }
+
+    var reviewPara = document.createElement("p");
+    reviewPara.setAttribute("id", "review"+index);
+
+    mediaBody.appendChild(reviewPara);
+    mediaInit.appendChild(mediaBody);
+    //End generating media block
+
+    position = document.getElementById("mediaBlock");
+    position.appendChild(mediaInit);
+
+    //Place name block
+    var place = document.getElementById("mediaHeader"+index);
+    var elPlace = document.createElement("span");
+    var placeText = document.createTextNode(myPlaces[index].placeName);
+
+    elPlace.appendChild(placeText);
+    place.appendChild(elPlace);
+    // //End place name
+
+    //Star block
+    for (var i = 1; i <= myPlaces[index].star; i++) {
+      var position = document.getElementById("reviewStar"+(i+(index*5)));
+      position.setAttribute("class", "fa fa-star");
+    }
+    //End Star block
+
+    // Review block
+    var inputReview = document.getElementById("review"+index);
+    var el = document.createElement("p");
+    var elText = document.createTextNode(myPlaces[index].info);
+
+    el.appendChild(elText);
+    inputReview.appendChild(el);
+    // End Review block
   }
-
-  var reviewPara = document.createElement("p");
-  reviewPara.setAttribute("id", "review"+index);
-
-  mediaBody.appendChild(reviewPara);
-  mediaInit.appendChild(mediaBody);
-  //End generating media block
-
-  position = document.getElementById("mediaBlock");
-  position.appendChild(mediaInit);
-
-  //Place name block
-  var place = document.getElementById("mediaHeader"+index);
-  var elPlace = document.createElement("span");
-  var placeText = document.createTextNode(myPlaces[index].placeName);
-
-  elPlace.appendChild(placeText);
-  place.appendChild(elPlace);
-  // //End place name
-
-  //Star block
-  for (var i = 1; i <= myPlaces[index].star; i++) {
-    var position = document.getElementById("reviewStar"+(i+(index*5)));
-    position.setAttribute("class", "fa fa-star");
-  }
-  //End Star block
-
-  // Review block
-  var inputReview = document.getElementById("review"+index);
-  var el = document.createElement("p");
-  var elText = document.createTextNode(myPlaces[index].info);
-
-  el.appendChild(elText);
-  inputReview.appendChild(el);
-  // End Review block
 }
+listReview();
 
 //Search engine
 function searchData() {
@@ -168,6 +171,16 @@ function clearResult(result) {
   }
 }
 
+//Show and hide content function
+function toggle(value, element) {
+  if (element.classList.contains("hide")) {
+    element.classList.remove("hide");
+  }
+  else {
+    element.classList.add("hide");
+  }
+}
+
 //Search button
 document.getElementById('search').addEventListener('click', function() {
   searchData();
@@ -181,18 +194,31 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
   }
 })
 
-function toggle(value, element) {
-  if (element.classList.contains("hide")) {
-    element.classList.remove("hide");
-  }
-  else {
-    element.classList.add("hide");
-  }
-}
-
+//Add new place button
 var addNewButton = document.getElementById('addNewPlace');
 var newPlaceForm = document.getElementById('newPlaceForm');
 addNewButton.addEventListener('click', function() {
   toggle("hide", newPlaceForm)
   console.log('heard');
+})
+
+var newPlace = {
+  placeName: "",
+  placeType: "restaurant",
+  star: 0,
+  picture: "restaurant4.jpg",
+  info: "",
+  refLink: "Restaurant.html"
+}
+
+var submit = document.getElementById('submitNewPlace');
+var nameInput = document.getElementById('newPlaceName');
+var descriptionInput = document.getElementById('newPlaceInfo');
+
+submit.addEventListener('click', function() {
+  newPlace.placeName = nameInput.value;
+  newPlace.info = descriptionInput.value;
+  myPlaces.push(newPlace);
+
+  listReview();
 })
