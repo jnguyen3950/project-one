@@ -31,9 +31,9 @@ var myPlaces = [
 ];
 
 //Generating Media block
+var index = 0;
 function listReview() {
-  for(var index = 0; index < myPlaces.length; index++) {
-
+  while (index < myPlaces.length) {
     var mediaInit = document.createElement("div");
     mediaInit.setAttribute("class", "media");
 
@@ -102,6 +102,7 @@ function listReview() {
     el.appendChild(elText);
     inputReview.appendChild(el);
     // End Review block
+    index++;
   }
 }
 listReview();
@@ -155,12 +156,12 @@ function displayResult(object) {
   mediaSearchBody.appendChild(resultHeading);
   mediaSearchBody.appendChild(resultPara);
 
-  var mediaBlock = document.createElement('div');
-  mediaBlock.setAttribute('class', 'media text-center');
-  mediaBlock.appendChild(mediaImage);
-  mediaBlock.appendChild(mediaSearchBody);
+  var mediaResult = document.createElement('div');
+  mediaSearchResult.setAttribute('class', 'media text-center');
+  mediaSearchResult.appendChild(mediaImage);
+  mediaSearchResult.appendChild(mediaSearchBody);
 
-  resultResult.appendChild(mediaBlock);
+  resultResult.appendChild(mediaSearchResult);
 }
 //End media search result
 
@@ -219,6 +220,6 @@ submit.addEventListener('click', function() {
   newPlace.placeName = nameInput.value;
   newPlace.info = descriptionInput.value;
   myPlaces.push(newPlace);
-
+  toggle("hide", newPlaceForm);
   listReview();
 })
