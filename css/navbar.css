@@ -2,15 +2,6 @@
   width: 350px;
 }
 
-#logo {
-  width: 90px;
-}
-
-.navbar-brand {
-  padding: 0px;
-  margin: 0px;
-}
-
 .navbar-default {
   background-color: #ee4747;
   border-color: #f00606;
