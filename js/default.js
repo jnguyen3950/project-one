@@ -75,9 +75,12 @@ function listReview() {
 }
 listReview();
 
+// Hide & Show user comment
+var jumbotronHeader = document.getElementById('jumbotronHeader');
 var position = document.getElementById("mediaBlock");
 position.addEventListener('click', function (){
   toggle("hidden", reviewPosition);
+  toggle("hidden", jumbotronHeader);
 })
 
 //Search engine
@@ -173,7 +176,6 @@ var addNewButton = document.getElementById('addNewPlace');
 var newPlaceForm = document.getElementById('newPlaceForm');
 addNewButton.addEventListener('click', function() {
   toggle("hidden", newPlaceForm)
-  console.log('heard');
 })
 
 var newPlace = {
