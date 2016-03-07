@@ -75,14 +75,6 @@ function listReview() {
 }
 listReview();
 
-// Hide & Show user comment
-var jumbotronHeader = document.getElementById('jumbotronHeader');
-var position = document.getElementById("mediaBlock");
-position.addEventListener('click', function (){
-  toggle("hidden", reviewPosition);
-  toggle("hidden", jumbotronHeader);
-})
-
 //Search engine
 function searchData() {
   clearResult(searchResult);
@@ -157,6 +149,57 @@ function toggle(value, element) {
     element.classList.add("hidden");
   }
 }
+
+function home() {
+  if (jumbotronHeader.classList.contains("hidden")) {
+    toggle("hidden", jumbotronHeader);
+  }
+  if (!reviewPosition.classList.contains("hidden")) {}
+
+  if (position.classList.contains("hidden")) {
+    toggle("hidden", position);
+  }
+}
+
+function searchLink() {
+  if (jumbostronHeader.classList.contains("hidden")) {};
+  if (reviewPosition.classList.contains("hidden")) {
+    toggle("hidden", position)
+  }
+  if (position.classList.contains("hidden")) {};
+}
+
+// Hide & Show content
+var jumbotronHeader = document.getElementById('jumbotronHeader');
+var position = document.getElementById("mediaBlock");
+var reviewBtn = document.getElementById("reviewBtn");
+
+position.addEventListener('click', function() {
+  toggle("hidden", reviewPosition);
+  toggle("hidden", jumbotronHeader);
+  toggle("hidden", position);
+  toggle("hidden", reviewBtn);
+})
+
+searchResult.addEventListener('click', function() {
+  if (reviewPosition.classList.contains("hidden")) {
+    toggle("hidden", reviewPosition);
+    toggle("hidden", jumbotronHeader);
+    toggle("hidden", position);
+    toggle("hidden", reviewBtn);
+    toggle("hidden", searchResult);
+  }
+})
+
+document.getElementById('logo').addEventListener('click', function() {
+  home();
+  console.log('heard');
+})
+
+document.getElementById('homeBtn').addEventListener('click', function() {
+  home();
+  console.log('heard2');
+})
 
 //Search button
 document.getElementById('search').addEventListener('click', function() {
