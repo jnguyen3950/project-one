@@ -201,13 +201,13 @@ function home() {
   }
 }
 
-// position.addEventListener('click', function() {
-//   toggle("hidden", reviewPosition);
-//   toggle("hidden", jumbotronHeader);
-//   toggle("hidden", position);
-//   toggle("hidden", reviewBtn);
-//   toggle("hidden", searchResult);
-// })
+position.addEventListener('click', function() {
+  toggle("hidden", reviewPosition);
+  toggle("hidden", jumbotronHeader);
+  toggle("hidden", position);
+  toggle("hidden", reviewBtn);
+  toggle("hidden", searchResult);
+})
 
 searchResult.addEventListener('click', function() {
   if (reviewPosition.classList.contains("hidden")) {
@@ -293,14 +293,17 @@ var reviewInput = document.getElementById('review-text');
 
 submit.addEventListener('click', function() {
   newComment.userName = nameInput.value;
+  _.pick(myPlaces[id], 'userComment').userComment.user.push(nameInput.value);
   for(var i = 0; i < ratingInput.length; i++) {
     if(ratingInput[i].checked) {
       newComment.star = parseInt(ratingInput[i].value);
     }
   }
   newComment.info = reviewInput.value;
-  userComment.push(newComment);
-  console.log("This is object array pushed: " + userComment.length);
+  _.pick(myPlaces[id], 'userComment').userComment.comment.push(reviewInput.value);
+
+  _.pick(myPlaces[id], 'userComment').userComment.star.push(newComment.star);
+
   displayReview();
 })
 //End review modal block
@@ -327,7 +330,7 @@ function displayReview () {
     reviewPanelHeading.appendChild(uName);
 
     var breakLine = document.createElement('div');
-    for (var j = 0; j < myReview.userComment.star[index]; j++) {
+    for (var j = 0; j < _.pick(myPlaces[id], 'userComment').userComment.star[index]; j++) {
       var reviewStar = document.createElement('span');
       reviewStar.setAttribute('class', 'fa fa-star');
       breakLine.appendChild(reviewStar);

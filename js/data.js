@@ -70,19 +70,6 @@ var restaurantInfo = [
   }
 ]
 
-var userComment = [
-  {
-    userName: "Justin",
-    star: 4,
-    info: "Id ut a tempor rutrum feugiat leo eu suspendisse natoque sapien porta ligula parturient."
-  },
-  {
-    userName: "Joe",
-    star: 5,
-    info: "Vestibulum ullamcorper nullam erat nam suspendisse conubia a a non dui sem litora a a vestibulum euismod metus nascetur mus aliquam eu.Eros suspendisse torquent senectus sit suspendisse adipiscing sed ullamcorper placerat parturient senectus ullamcorper quam vestibulum ultrices adipiscing lobortis."
-  }
-];
-
 var myReview = _.pick(myPlaces[0], 'userComment');
 
 console.log(myPlaces);
