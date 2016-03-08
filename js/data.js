@@ -4,7 +4,7 @@ var myPlaces = [
     placeType: "restaurant",
     star: 4,
     picture: "restaurant1.jpg",
-    info: "Hac blandit a sit a pharetra parturient diam proin ipsum natoque aliquam porttitor elementum parturient est.Vehicula morbi bibendum montes suspendisse ut a nulla vel sagittis montes eu ornare mi a adipiscing vestibulum vestibulum.Vestibulum nisi cum a litora sociis per parturient class condimentum sit per elit ridiculus risus enim taciti a parturient sociis parturient vestibulum sapien hac ad sit felis litora a.Leo ipsum adipiscing neque suspendisse libero consectetur eleifend penatibus mi vestibulum dictum leo parturient parturient gravida.",
+    info: "Hac blandit a sit a pharetra parturient diam proin ipsum natoque aliquam porttitor elementum parturient est.Vehicula morbi bibendum montes suspendisse ut a nulla vel sagittis montes eu ornare mi a adipiscing vestibulum vestibulum.Vestibulum nisi cum a litora sociis per parturient class condimentum sit per elit ridiculus risus enim taciti a parturient sociis parturient vestibulum sapien hac ad sit felis litora a.Leo ipsum adipiscing neque suspendisse libero consectetur eleifend penatibus mi vestibulum dictum leo parturient parturient gravida."
   },
   {
     placeName: "Shrimp",

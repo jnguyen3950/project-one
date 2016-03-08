@@ -150,29 +150,27 @@ function toggle(value, element) {
   }
 }
 
-function home() {
-  if (jumbotronHeader.classList.contains("hidden")) {
-    toggle("hidden", jumbotronHeader);
-  }
-  if (!reviewPosition.classList.contains("hidden")) {}
-
-  if (position.classList.contains("hidden")) {
-    toggle("hidden", position);
-  }
-}
-
-function searchLink() {
-  if (jumbostronHeader.classList.contains("hidden")) {};
-  if (reviewPosition.classList.contains("hidden")) {
-    toggle("hidden", position)
-  }
-  if (position.classList.contains("hidden")) {};
-}
-
 // Hide & Show content
 var jumbotronHeader = document.getElementById('jumbotronHeader');
 var position = document.getElementById("mediaBlock");
 var reviewBtn = document.getElementById("reviewBtn");
+
+function home() {
+  if (jumbotronHeader.classList.contains("hidden")) {
+    toggle("hidden", jumbotronHeader);
+  }
+  if (reviewPosition.classList.contains("hidden")) {}
+  else {
+    toggle("hidden", reviewPosition);
+    toggle("hidden", reviewBtn);
+  }
+  if (position.classList.contains("hidden")) {
+    toggle("hidden", position);
+  }
+  if (searchResult.classList.contains("hidden")) {
+    toggle("hidden", searchResult);
+  }
+}
 
 position.addEventListener('click', function() {
   toggle("hidden", reviewPosition);
@@ -193,17 +191,18 @@ searchResult.addEventListener('click', function() {
 
 document.getElementById('logo').addEventListener('click', function() {
   home();
-  console.log('heard');
 })
 
 document.getElementById('homeBtn').addEventListener('click', function() {
   home();
-  console.log('heard2');
 })
 
 //Search button
 document.getElementById('search').addEventListener('click', function() {
   searchData();
+  if(searchResult.classList.contains("hidden")) {
+    toggle("hidden", searchResult);
+  }
 }, false);
 
 //Search box
@@ -231,11 +230,11 @@ var newPlace = {
 }
 
 var submit = document.getElementById('submitNewPlace');
-var nameInput = document.getElementById('newPlaceName');
+var namePlaceInput = document.getElementById('newPlaceName');
 var descriptionInput = document.getElementById('newPlaceInfo');
 
 submit.addEventListener('click', function() {
-  newPlace.placeName = nameInput.value;
+  newPlace.placeName = namePlaceInput.value;
   newPlace.info = descriptionInput.value;
   myPlaces.push(newPlace);
   toggle("hidden", newPlaceForm);
