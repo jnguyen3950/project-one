@@ -201,13 +201,13 @@ function home() {
   }
 }
 
-position.addEventListener('click', function() {
-  toggle("hidden", reviewPosition);
-  toggle("hidden", jumbotronHeader);
-  toggle("hidden", position);
-  toggle("hidden", reviewBtn);
-  toggle("hidden", searchResult);
-})
+// position.addEventListener('click', function() {
+//   toggle("hidden", reviewPosition);
+//   toggle("hidden", jumbotronHeader);
+//   toggle("hidden", position);
+//   toggle("hidden", reviewBtn);
+//   toggle("hidden", searchResult);
+// })
 
 searchResult.addEventListener('click', function() {
   if (reviewPosition.classList.contains("hidden")) {
@@ -247,24 +247,30 @@ var cateRestaurant = document.getElementsByClassName('cateRestaurant')
 for (var i = 0; i < cateRestaurant.length; i++) {
   cateRestaurant[i].addEventListener('click', function() {
     searchCategory("restaurant");
-    console.log("hear");
-  }
-)}
+  })
+}
 
-var cateBar = document.getElementsByClassName('cateBar')
+var cateBar = document.getElementsByClassName('cateBar');
 for (var i = 0; i < cateBar.length; i++) {
   cateBar[i].addEventListener('click', function() {
     searchCategory("bar");
-    console.log("hear");
-  }
-)}
+  })
+}
+
+var mediaClass = document.getElementsByClassName('media');
+for (var i = 0; i < mediaClass.length; i++) {
+  mediaClass[i].addEventListener('click', function() {
+    console.log("This is media: " + i);
+    console.log(id = i - 1);
+    id = i - 1;
+    displayReview();
+  })
+}
 
 //Add new place button
-
 addNewButton.addEventListener('click', function() {
   toggle("hidden", newPlaceForm)
 })
-
 
 var submit = document.getElementById('submitNewPlace');
 var namePlaceInput = document.getElementById('newPlaceName');
@@ -303,6 +309,9 @@ var index = 0;
 var id = 0;
 var reviewPosition = document.getElementById('userComment');
 function displayReview () {
+  clearResult(reviewPosition);
+  index = 0;
+
   while (index < _.pick(myPlaces[id], 'userComment').userComment.user.length) {
   // while (index < userComment.length) {
     var reviewPanel = document.createElement('div');
