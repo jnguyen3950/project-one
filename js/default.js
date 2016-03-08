@@ -1,9 +1,33 @@
-//Generating Media block
 var indexMedia = 0;
+var searchResult = document.getElementById('searchBlock');
+var jumbotronHeader = document.getElementById('jumbotronHeader');
+var position = document.getElementById("mediaBlock");
+var reviewBtn = document.getElementById("reviewBtn");
+var addNewButton = document.getElementById('addNewPlace');
+var newPlaceForm = document.getElementById('newPlaceForm');
+
+var newPlace = {
+  placeName: "",
+  placeType: "restaurant",
+  star: 0,
+  picture: "restaurant4.jpg",
+  info: "",
+  refLink: "#"
+}
+
+var newComment = {
+  userName: "",
+  star: 0,
+  info: ""
+}
+
+//Generating Media block
 function listReview() {
   while (indexMedia < myPlaces.length) {
+    //Generate Media Block
     var mediaInit = document.createElement("div");
     mediaInit.setAttribute("class", "media");
+    mediaInit.setAttribute("data-id", indexMedia);
 
     var mediaHeading = document.createElement("div");
     mediaHeading.setAttribute("class", "media-left media-middle");
@@ -107,8 +131,6 @@ function searchCategory(key) {
 }
 
 // Media that display search result
-var searchResult = document.getElementById('searchBlock');
-
 function displayResult(object) {
   var resultImage = document.createElement("img");
   resultImage.setAttribute('class', 'media-object');
@@ -162,10 +184,6 @@ function toggle(value, element) {
 }
 
 // Hide & Show content
-var jumbotronHeader = document.getElementById('jumbotronHeader');
-var position = document.getElementById("mediaBlock");
-var reviewBtn = document.getElementById("reviewBtn");
-
 function home() {
   if (jumbotronHeader.classList.contains("hidden")) {
     toggle("hidden", jumbotronHeader);
@@ -242,20 +260,11 @@ for (var i = 0; i < cateBar.length; i++) {
 )}
 
 //Add new place button
-var addNewButton = document.getElementById('addNewPlace');
-var newPlaceForm = document.getElementById('newPlaceForm');
+
 addNewButton.addEventListener('click', function() {
   toggle("hidden", newPlaceForm)
 })
 
-var newPlace = {
-  placeName: "",
-  placeType: "restaurant",
-  star: 0,
-  picture: "restaurant4.jpg",
-  info: "",
-  refLink: "#"
-}
 
 var submit = document.getElementById('submitNewPlace');
 var namePlaceInput = document.getElementById('newPlaceName');
@@ -268,12 +277,6 @@ submit.addEventListener('click', function() {
   toggle("hidden", newPlaceForm);
   listReview();
 })
-
-var newComment = {
-  userName: "",
-  star: 0,
-  info: ""
-};
 
 //User review modal block
 var submit = document.getElementById('submit-btn');
@@ -297,22 +300,24 @@ submit.addEventListener('click', function() {
 
 //Generate review blocks
 var index = 0;
+var id = 0;
 var reviewPosition = document.getElementById('userComment');
 function displayReview () {
-  while (index < userComment.length) {
+  while (index < _.pick(myPlaces[id], 'userComment').userComment.user.length) {
+  // while (index < userComment.length) {
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
     var reviewPanelHeading = document.createElement('div');
     reviewPanelHeading.setAttribute('class', 'panel-heading');
     var uName = document.createElement('span');
     uName.setAttribute('class', 'userName');
-    var nameText = document.createTextNode(userComment[index].userName);
+    var nameText = document.createTextNode(_.pick(myPlaces[id], 'userComment').userComment.user[index]);
 
     uName.appendChild(nameText);
     reviewPanelHeading.appendChild(uName);
 
     var breakLine = document.createElement('div');
-    for (var j = 0; j < userComment[index].star; j++) {
+    for (var j = 0; j < myReview.userComment.star[index]; j++) {
       var reviewStar = document.createElement('span');
       reviewStar.setAttribute('class', 'fa fa-star');
       breakLine.appendChild(reviewStar);
@@ -324,7 +329,7 @@ function displayReview () {
 
     var comment = document.createElement('div');
     comment.setAttribute('class', 'panel-body');
-    var commenText = document.createTextNode(userComment[index].info);
+    var commenText = document.createTextNode(_.pick(myPlaces[id], 'userComment').userComment.comment[index]);
 
     comment.appendChild(commenText);
     reviewPanel.appendChild(comment);
@@ -402,3 +407,5 @@ function addReviewTag (targetNode) {
   }
   targetNode.appendChild(tagSet);
 }
+
+console.log(position);

@@ -1,31 +1,55 @@
 var myPlaces = [
   {
+    id: 1,
     placeName: "Hometown",
     placeType: "restaurant",
     star: 4,
     picture: "restaurant1.jpg",
-    info: "Hac blandit a sit a pharetra parturient diam proin ipsum natoque aliquam porttitor elementum parturient est.Vehicula morbi bibendum montes suspendisse ut a nulla vel sagittis montes eu ornare mi a adipiscing vestibulum vestibulum.Vestibulum nisi cum a litora sociis per parturient class condimentum sit per elit ridiculus risus enim taciti a parturient sociis parturient vestibulum sapien hac ad sit felis litora a.Leo ipsum adipiscing neque suspendisse libero consectetur eleifend penatibus mi vestibulum dictum leo parturient parturient gravida."
+    info: "Hac blandit a sit a pharetra parturient diam proin ipsum natoque aliquam porttitor elementum parturient est.Vehicula morbi bibendum montes suspendisse ut a nulla vel sagittis montes eu ornare mi a adipiscing vestibulum vestibulum.Vestibulum nisi cum a litora sociis per parturient class condimentum sit per elit ridiculus risus enim taciti a parturient sociis parturient vestibulum sapien hac ad sit felis litora a.Leo ipsum adipiscing neque suspendisse libero consectetur eleifend penatibus mi vestibulum dictum leo parturient parturient gravida.",
+    userComment: {
+      user: ["Justin", "Joe"],
+      star: [3, 4],
+      comment: ["welfkwjelfkwjelkfjwlekfjwlkj", "aksdjfhaksdjfhalsdfkjah"]
+    }
   },
   {
+    id: 2,
     placeName: "Shrimp",
     placeType: "bar",
     star: 3,
     picture: "restaurant2.jpg",
-    info: "Lacinia ante erat neque non justo malesuada per nostra ipsum curae adipiscing euismod consequat."
+    info: "Lacinia ante erat neque non justo malesuada per nostra ipsum curae adipiscing euismod consequat.",
+    userComment: {
+      user: ["Justin", "Joe"],
+      star: [3, 4],
+      comment: ["welfkwjelfkwjelkfjwlekfjwlkj", "aksdjfhaksdjfhalsdfkjah"]
+    }
   },
   {
+    id: 3,
     placeName: "Toasted",
     placeType: "restaurant",
     star: 5,
     picture: "restaurant3.jpg",
-    info: "Nunc ridiculus enim praesent cubilia sed enim dignissim convallis class est vestibulum ullamcorper."
+    info: "Nunc ridiculus enim praesent cubilia sed enim dignissim convallis class est vestibulum ullamcorper.",
+    userComment: {
+      user: ["Justin", "Joe"],
+      star: [3, 4],
+      comment: ["welfkwjelfkwjelkfjwlekfjwlkj", "aksdjfhaksdjfhalsdfkjah"]
+    }
   },
   {
+    id: 4,
     placeName: "Bubble",
     placeType: "bar",
     star: 4,
     picture: "restaurant4.jpg",
-    info: "Gravida condimentum commodo magnis tristique scelerisque penatibus etiam donec et interdum aliquam imperdiet vivamus dignissim."
+    info: "Gravida condimentum commodo magnis tristique scelerisque penatibus etiam donec et interdum aliquam imperdiet vivamus dignissim.",
+    userComment: {
+      user: ["Justin", "Joe"],
+      star: [3, 4],
+      comment: ["welfkwjelfkwjelkfjwlekfjwlkj", "aksdjfhaksdjfhalsdfkjah"]
+    }
   }
 ];
 
@@ -58,3 +82,12 @@ var userComment = [
     info: "Vestibulum ullamcorper nullam erat nam suspendisse conubia a a non dui sem litora a a vestibulum euismod metus nascetur mus aliquam eu.Eros suspendisse torquent senectus sit suspendisse adipiscing sed ullamcorper placerat parturient senectus ullamcorper quam vestibulum ultrices adipiscing lobortis."
   }
 ];
+
+var myReview = _.pick(myPlaces[0], 'userComment');
+
+console.log(myPlaces);
+console.log(myReview);
+console.log(myReview.userComment);
+// console.log(myReview.userComment.user);
+// console.log(myReview.userComment.comment);
+console.log(_.pick(myPlaces[0], 'userComment').userComment.user);
