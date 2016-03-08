@@ -95,6 +95,17 @@ function searchData() {
   }
 }
 
+function searchCategory(key) {
+  clearResult(searchResult);
+  var input = document.getElementById('searchBox');
+  for(var i = 0; i < myPlaces.length; i++) {
+    if(myPlaces[i].placeName.toLowerCase() == key ||
+        myPlaces[i].placeType.toLowerCase() == key) {
+      displayResult(myPlaces[i]);
+    }
+  }
+}
+
 // Media that display search result
 var searchResult = document.getElementById('searchBlock');
 
@@ -177,6 +188,7 @@ position.addEventListener('click', function() {
   toggle("hidden", jumbotronHeader);
   toggle("hidden", position);
   toggle("hidden", reviewBtn);
+  toggle("hidden", searchResult);
 })
 
 searchResult.addEventListener('click', function() {
@@ -212,6 +224,22 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
     event.preventDefault();
   }
 })
+
+var cateRestaurant = document.getElementsByClassName('cateRestaurant')
+for (var i = 0; i < cateRestaurant.length; i++) {
+  cateRestaurant[i].addEventListener('click', function() {
+    searchCategory("restaurant");
+    console.log("hear");
+  }
+)}
+
+var cateBar = document.getElementsByClassName('cateBar')
+for (var i = 0; i < cateBar.length; i++) {
+  cateBar[i].addEventListener('click', function() {
+    searchCategory("bar");
+    console.log("hear");
+  }
+)}
 
 //Add new place button
 var addNewButton = document.getElementById('addNewPlace');
