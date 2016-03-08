@@ -27,7 +27,6 @@ function listReview() {
     //Generate Media Block
     var mediaInit = document.createElement("div");
     mediaInit.setAttribute("class", "media");
-    mediaInit.setAttribute("data-id", indexMedia);
 
     var mediaHeading = document.createElement("div");
     mediaHeading.setAttribute("class", "media-left media-middle");
@@ -39,6 +38,7 @@ function listReview() {
     mediaImg.setAttribute("class", "media-object");
     mediaImg.setAttribute("src", "images/"+myPlaces[indexMedia].picture);
     mediaImg.setAttribute("width", "300px");
+    mediaImg.setAttribute("data-id", indexMedia);
 
     link.appendChild(mediaImg);
     mediaHeading.appendChild(link);
@@ -257,12 +257,13 @@ for (var i = 0; i < cateBar.length; i++) {
   })
 }
 
+//Generate comment blocks
 var mediaClass = document.getElementsByClassName('media');
 for (var i = 0; i < mediaClass.length; i++) {
-  mediaClass[i].addEventListener('click', function() {
-    console.log("This is media: " + i);
-    console.log(id = i - 1);
-    id = i - 1;
+  mediaClass[i].addEventListener('click', function(event) {
+    console.log(mediaClass);
+    id = event.target.getAttribute('data-id');
+    console.log(id);
     displayReview();
   })
 }
