@@ -222,6 +222,11 @@ searchBlock.addEventListener('click', function(event) {
     toggle('hidden', reviewBtn);
     toggle('hidden', searchBlock);
   }
+  else if (event.target.classList.contains('media-object')) {
+    storeId = event.target.getAttribute('data-id');
+    displayReview();
+    toggle('hidden', searchBlock);
+  }
 })
 
 document.getElementById('logo').addEventListener('click', function() {
@@ -243,6 +248,9 @@ document.getElementById('search').addEventListener('click', function() {
 //Search box
 document.getElementById('searchBox').addEventListener('keypress', function(event) {
   if (event.keyCode == 13) {
+    if(searchBlock.classList.contains('hidden')) {
+      toggle('hidden', searchBlock);
+    }
     searchData();
     event.preventDefault();
   }
@@ -251,6 +259,9 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
 var cateRestaurant = document.getElementsByClassName('cateRestaurant')
 for (var i = 0; i < cateRestaurant.length; i++) {
   cateRestaurant[i].addEventListener('click', function() {
+    if(searchBlock.classList.contains('hidden')) {
+      toggle('hidden', searchBlock);
+    }
     searchCategory('restaurant');
   })
 }
@@ -258,6 +269,9 @@ for (var i = 0; i < cateRestaurant.length; i++) {
 var cateBar = document.getElementsByClassName('cateBar');
 for (var i = 0; i < cateBar.length; i++) {
   cateBar[i].addEventListener('click', function() {
+    if(searchBlock.classList.contains('hidden')) {
+      toggle('hidden', searchBlock);
+    }
     searchCategory('bar');
   })
 }
@@ -305,8 +319,6 @@ submit.addEventListener('click', function() {
     }
   }
   _.pick(myPlaces[id], 'userComment').userComment.comment.push(reviewInput.value);
-
-
   displayReview();
 })
 //End review modal block
@@ -320,11 +332,19 @@ function displayReview () {
   clearResult(reviewPosition);
   index = 0;
 
+  // Review block store picture
+  var reviewPicture = document.createElement('img');
+  reviewPicture.setAttribute('src', 'images/restaurant' + (parseInt(storeId)+1) + '.jpg');
+  reviewPicture.setAttribute('width', '500');
+  reviewPosition.appendChild(reviewPicture);
+
   // Review block header
   var reviewHeading = document.createElement('h2');
   var reviewHeadingText = document.createTextNode('You are reviewing: ' + myPlaces[storeId].placeName);
   reviewHeading.appendChild(reviewHeadingText);
   reviewPosition.appendChild(reviewHeading);
+
+  console.log(reviewPosition);
 
   while (index < _.pick(myPlaces[storeId], 'userComment').userComment.user.length) {
   // while (index < userComment.length) {
