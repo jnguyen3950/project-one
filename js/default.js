@@ -1,78 +1,78 @@
 var indexMedia = 0;
-var searchResult = document.getElementById('searchBlock');
+var searchBlock = document.getElementById('searchBlock');
 var jumbotronHeader = document.getElementById('jumbotronHeader');
-var position = document.getElementById("mediaBlock");
-var reviewBtn = document.getElementById("reviewBtn");
+var position = document.getElementById('mediaBlock');
+var reviewBtn = document.getElementById('reviewBtn');
 var addNewButton = document.getElementById('addNewPlace');
 var newPlaceForm = document.getElementById('newPlaceForm');
 
 var newPlace = {
-  placeName: "",
-  placeType: "restaurant",
+  placeName: '',
+  placeType: 'restaurant',
   star: 0,
-  picture: "restaurant4.jpg",
-  info: "",
-  refLink: "#"
+  picture: 'restaurant4.jpg',
+  info: '',
+  refLink: '#'
 }
 
 var newComment = {
-  userName: "",
+  userName: '',
   star: 0,
-  info: ""
+  info: ''
 }
 
 //Generating Media block
 function listReview() {
   while (indexMedia < myPlaces.length) {
     //Generate Media Block
-    var mediaInit = document.createElement("div");
-    mediaInit.setAttribute("class", "media");
+    var mediaInit = document.createElement('div');
+    mediaInit.setAttribute('class', 'media');
 
-    var mediaHeading = document.createElement("div");
-    mediaHeading.setAttribute("class", "media-left media-middle");
+    var mediaHeading = document.createElement('div');
+    mediaHeading.setAttribute('class', 'media-left media-middle');
 
-    var link = document.createElement("a");
-    link.setAttribute("href", "#");
+    var link = document.createElement('a');
+    link.setAttribute('href', '#');
 
-    var mediaImg = document.createElement("img");
-    mediaImg.setAttribute("class", "media-object");
-    mediaImg.setAttribute("src", "images/" + myPlaces[indexMedia].picture);
-    mediaImg.setAttribute("width", "300px");
-    mediaImg.setAttribute("data-id", indexMedia);
+    var mediaImg = document.createElement('img');
+    mediaImg.setAttribute('class', 'media-object');
+    mediaImg.setAttribute('src', 'images/' + myPlaces[indexMedia].picture);
+    mediaImg.setAttribute('width', '300px');
+    mediaImg.setAttribute('data-id', indexMedia);
 
     link.appendChild(mediaImg);
     mediaHeading.appendChild(link);
     mediaInit.appendChild(mediaHeading);
 
-    var mediaBody = document.createElement("div");
-    mediaBody.setAttribute("class", "media-body");
+    var mediaBody = document.createElement('div');
+    mediaBody.setAttribute('class', 'media-body');
 
-    var mediaH3 = document.createElement("h3");
-    mediaH3.setAttribute("class", "media-heading");
-    mediaH3.setAttribute("id", "mediaHeader"+indexMedia);
+    var mediaH3 = document.createElement('h3');
+    mediaH3.setAttribute('class', 'media-heading');
+    mediaH3.setAttribute('id', 'mediaHeader'+indexMedia);
 
     mediaBody.appendChild(mediaH3);
 
     for(var i = 1; i <= 5; i++) {
-      var mediaStar = document.createElement("span");
-      mediaStar.setAttribute("id", "reviewStar"+(i+(indexMedia*5)));
+      var mediaStar = document.createElement('span');
+      mediaStar.setAttribute('id', 'reviewStar'+(i+(indexMedia*5)));
 
       mediaBody.appendChild(mediaStar);
     }
 
-    var reviewPara = document.createElement("p");
-    reviewPara.setAttribute("id", "review"+indexMedia);
+    var reviewPara = document.createElement('p');
+    reviewPara.setAttribute('id', 'review'+indexMedia);
 
     mediaBody.appendChild(reviewPara);
     mediaInit.appendChild(mediaBody);
     //End generating media block
 
-    var position = document.getElementById("mediaBlock");
+    var position = document.getElementById('mediaBlock');
     position.appendChild(mediaInit);
 
     //Place name block
-    var place = document.getElementById("mediaHeader"+indexMedia);
-    var elPlace = document.createElement("span");
+    var place = document.getElementById('mediaHeader'+indexMedia);
+    var elPlace = document.createElement('span');
     var placeText = document.createTextNode(myPlaces[indexMedia].placeName);
 
     elPlace.appendChild(placeText);
@@ -81,14 +81,14 @@ function listReview() {
 
     //Star block
     for (var i = 1; i <= myPlaces[indexMedia].star; i++) {
-      var position = document.getElementById("reviewStar"+(i+(indexMedia*5)));
-      position.setAttribute("class", "fa fa-star");
+      var position = document.getElementById('reviewStar'+(i+(indexMedia*5)));
+      position.setAttribute('class', 'fa fa-star');
     }
     //End Star block
 
     // Review block
-    var mediaBlock = document.getElementById("review"+indexMedia);
-    var el = document.createElement("p");
+    var mediaBlock = document.getElementById('review'+indexMedia);
+    var el = document.createElement('p');
     var elText = document.createTextNode(myPlaces[indexMedia].info);
 
     el.appendChild(elText);
@@ -101,7 +101,7 @@ listReview();
 
 //Search engine
 function searchData() {
-  clearResult(searchResult);
+  clearResult(searchBlock);
   var found = false;
   var input = document.getElementById('searchBox');
   for(var i = 0; i < myPlaces.length; i++) {
@@ -115,12 +115,12 @@ function searchData() {
     var noResultEl = document.createElement('h1')
     var noResultText = document.createTextNode('No result found.');
     noResultEl.appendChild(noResultText);
-    searchResult.appendChild(noResultEl);
+    searchBlock.appendChild(noResultEl);
   }
 }
 
 function searchCategory(key) {
-  clearResult(searchResult);
+  clearResult(searchBlock);
   var input = document.getElementById('searchBox');
   for(var i = 0; i < myPlaces.length; i++) {
     if(myPlaces[i].placeName.toLowerCase() == key ||
@@ -132,7 +132,7 @@ function searchCategory(key) {
 
 // Media that display search result
 function displayResult(object) {
-  var resultImage = document.createElement("img");
+  var resultImage = document.createElement('img');
   resultImage.setAttribute('class', 'media-object');
   resultImage.setAttribute('src', 'images/' + object.picture);
   resultImage.setAttribute('alt', 'Result picture.');
@@ -163,7 +163,7 @@ function displayResult(object) {
   mediaSearchResult.appendChild(mediaImage);
   mediaSearchResult.appendChild(mediaSearchBody);
 
-  searchResult.appendChild(mediaSearchResult);
+  searchBlock.appendChild(mediaSearchResult);
 }
 //End media search result
 
@@ -176,49 +176,51 @@ function clearResult(result) {
 
 //Show and hide content function
 function toggle(value, element) {
-  if (element.classList.contains("hidden")) {
-    element.classList.remove("hidden");
+  if (element.classList.contains('hidden')) {
+    element.classList.remove('hidden');
   }
   else {
-    element.classList.add("hidden");
+    element.classList.add('hidden');
   }
 }
 
 // Hide & Show content
 function home() {
-  if (jumbotronHeader.classList.contains("hidden")) {
-    toggle("hidden", jumbotronHeader);
+  if (jumbotronHeader.classList.contains('hidden')) {
+    toggle('hidden', jumbotronHeader);
   }
-  if (reviewPosition.classList.contains("hidden")) {}
+  if (reviewPosition.classList.contains('hidden')) {}
   else {
-    toggle("hidden", reviewPosition);
-    toggle("hidden", reviewBtn);
+    toggle('hidden', reviewPosition);
+    toggle('hidden', reviewBtn);
   }
-  if (position.classList.contains("hidden")) {
-    toggle("hidden", position);
+  if (position.classList.contains('hidden')) {
+    toggle('hidden', position);
   }
-  if (searchResult.classList.contains("hidden")) {
-    toggle("hidden", searchResult);
+  if (searchBlock.classList.contains('hidden')) {
+    toggle('hidden', searchBlock);
   }
 }
 
-position.addEventListener('click', function() {
-  toggle("hidden", reviewPosition);
-  toggle("hidden", jumbotronHeader);
-  toggle("hidden", position);
-  toggle("hidden", reviewBtn);
-  toggle("hidden", searchResult);
+position.addEventListener('click', function(event) {
+  if (event.target.classList.contains('media-object')) {
+    toggle('hidden', reviewPosition);
+    toggle('hidden', jumbotronHeader);
+    toggle('hidden', position);
+    toggle('hidden', reviewBtn);
+    toggle('hidden', searchBlock);
+  }
 })
 
-searchResult.addEventListener('click', function(event) {
-  if (reviewPosition.classList.contains("hidden")) {
+searchBlock.addEventListener('click', function(event) {
+  if (event.target.classList.contains('media-object') && reviewPosition.classList.contains('hidden')) {
     storeId = event.target.getAttribute('data-id');
     displayReview();
-    toggle("hidden", reviewPosition);
-    toggle("hidden", jumbotronHeader);
-    toggle("hidden", position);
-    toggle("hidden", reviewBtn);
-    toggle("hidden", searchResult);
+    toggle('hidden', reviewPosition);
+    toggle('hidden', jumbotronHeader);
+    toggle('hidden', position);
+    toggle('hidden', reviewBtn);
+    toggle('hidden', searchBlock);
   }
 })
 
@@ -233,8 +235,8 @@ document.getElementById('homeBtn').addEventListener('click', function() {
 //Search button
 document.getElementById('search').addEventListener('click', function() {
   searchData();
-  if(searchResult.classList.contains("hidden")) {
-    toggle("hidden", searchResult);
+  if(searchBlock.classList.contains('hidden')) {
+    toggle('hidden', searchBlock);
   }
 }, false);
 
@@ -249,14 +251,14 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
 var cateRestaurant = document.getElementsByClassName('cateRestaurant')
 for (var i = 0; i < cateRestaurant.length; i++) {
   cateRestaurant[i].addEventListener('click', function() {
-    searchCategory("restaurant");
+    searchCategory('restaurant');
   })
 }
 
 var cateBar = document.getElementsByClassName('cateBar');
 for (var i = 0; i < cateBar.length; i++) {
   cateBar[i].addEventListener('click', function() {
-    searchCategory("bar");
+    searchCategory('bar');
   })
 }
 
@@ -264,15 +266,16 @@ for (var i = 0; i < cateBar.length; i++) {
 var mediaClass = document.getElementsByClassName('media');
 for (var i = 0; i < mediaClass.length; i++) {
   mediaClass[i].addEventListener('click', function(event) {
-    storeId = event.target.getAttribute('data-id');
-    console.log(event.target);
-    displayReview();
+    if (event.target.classList.contains('media-object')) {
+      storeId = event.target.getAttribute('data-id');
+      displayReview();
+    }
   })
 }
 
 //Add new place button
 addNewButton.addEventListener('click', function() {
-  toggle("hidden", newPlaceForm)
+  toggle('hidden', newPlaceForm)
 })
 
 var submit = document.getElementById('submitNewPlace');
@@ -283,7 +286,7 @@ submit.addEventListener('click', function() {
   newPlace.placeName = namePlaceInput.value;
   newPlace.info = descriptionInput.value;
   myPlaces.push(newPlace);
-  toggle("hidden", newPlaceForm);
+  toggle('hidden', newPlaceForm);
   listReview();
 })
 
@@ -312,9 +315,16 @@ submit.addEventListener('click', function() {
 var index = 0;
 var storeId = 0;
 var reviewPosition = document.getElementById('userComment');
+
 function displayReview () {
   clearResult(reviewPosition);
   index = 0;
+
+  // Review block header
+  var reviewHeading = document.createElement('h2');
+  var reviewHeadingText = document.createTextNode('You are reviewing: ' + myPlaces[storeId].placeName);
+  reviewHeading.appendChild(reviewHeadingText);
+  reviewPosition.appendChild(reviewHeading);
 
   while (index < _.pick(myPlaces[storeId], 'userComment').userComment.user.length) {
   // while (index < userComment.length) {
@@ -357,7 +367,7 @@ displayReview();
 var businessInfo = document.getElementById('businessInfo');
 for (info in restaurantInfo[0]) {
   var businessType = document.createElement('li');
-  var typeText = document.createTextNode(info + " : " + restaurantInfo[0][info]);
+  var typeText = document.createTextNode(info + ' : ' + restaurantInfo[0][info]);
   businessType.appendChild(typeText);
   businessInfo.appendChild(businessType);
 }
@@ -365,7 +375,7 @@ for (info in restaurantInfo[0]) {
 var businessHours = document.getElementById('businessHours');
 for (info in restaurantInfo[1]) {
   var day = document.createElement('li');
-  var typeText = document.createTextNode(info + " : " + restaurantInfo[1][info]);
+  var typeText = document.createTextNode(info + ' : ' + restaurantInfo[1][info]);
   day.appendChild(typeText);
   businessHours.appendChild(day);
 }
