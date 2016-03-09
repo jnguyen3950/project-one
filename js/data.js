@@ -1,6 +1,6 @@
 var myPlaces = [
   {
-    id: 1,
+    storeId: 0,
     placeName: "Hometown",
     placeType: "restaurant",
     star: 4,
@@ -13,7 +13,7 @@ var myPlaces = [
     }
   },
   {
-    id: 2,
+    storeId: 1,
     placeName: "Shrimp",
     placeType: "bar",
     star: 3,
@@ -26,7 +26,7 @@ var myPlaces = [
     }
   },
   {
-    id: 3,
+    storeId: 2,
     placeName: "Toasted",
     placeType: "restaurant",
     star: 5,
@@ -39,7 +39,7 @@ var myPlaces = [
     }
   },
   {
-    id: 4,
+    storeId: 3,
     placeName: "Bubble",
     placeType: "bar",
     star: 4,

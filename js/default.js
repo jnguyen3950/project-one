@@ -36,7 +36,7 @@ function listReview() {
 
     var mediaImg = document.createElement("img");
     mediaImg.setAttribute("class", "media-object");
-    mediaImg.setAttribute("src", "images/"+myPlaces[indexMedia].picture);
+    mediaImg.setAttribute("src", "images/" + myPlaces[indexMedia].picture);
     mediaImg.setAttribute("width", "300px");
     mediaImg.setAttribute("data-id", indexMedia);
 
@@ -137,6 +137,7 @@ function displayResult(object) {
   resultImage.setAttribute('src', 'images/' + object.picture);
   resultImage.setAttribute('alt', 'Result picture.');
   resultImage.setAttribute('width', '300px');
+  resultImage.setAttribute('data-id', object.storeId);
 
   var mediaImage = document.createElement('a');
   mediaImage.setAttribute('class', 'media-left');
@@ -209,8 +210,10 @@ position.addEventListener('click', function() {
   toggle("hidden", searchResult);
 })
 
-searchResult.addEventListener('click', function() {
+searchResult.addEventListener('click', function(event) {
   if (reviewPosition.classList.contains("hidden")) {
+    storeId = event.target.getAttribute('data-id');
+    displayReview();
     toggle("hidden", reviewPosition);
     toggle("hidden", jumbotronHeader);
     toggle("hidden", position);
@@ -261,9 +264,8 @@ for (var i = 0; i < cateBar.length; i++) {
 var mediaClass = document.getElementsByClassName('media');
 for (var i = 0; i < mediaClass.length; i++) {
   mediaClass[i].addEventListener('click', function(event) {
-    console.log(mediaClass);
-    id = event.target.getAttribute('data-id');
-    console.log(id);
+    storeId = event.target.getAttribute('data-id');
+    console.log(event.target);
     displayReview();
   })
 }
@@ -292,17 +294,15 @@ var ratingInput = document.getElementsByName('rating-input');
 var reviewInput = document.getElementById('review-text');
 
 submit.addEventListener('click', function() {
-  newComment.userName = nameInput.value;
+
   _.pick(myPlaces[id], 'userComment').userComment.user.push(nameInput.value);
   for(var i = 0; i < ratingInput.length; i++) {
     if(ratingInput[i].checked) {
-      newComment.star = parseInt(ratingInput[i].value);
+      _.pick(myPlaces[id], 'userComment').userComment.star.push(parseInt(ratingInput[i].value));
     }
   }
-  newComment.info = reviewInput.value;
   _.pick(myPlaces[id], 'userComment').userComment.comment.push(reviewInput.value);
 
-  _.pick(myPlaces[id], 'userComment').userComment.star.push(newComment.star);
 
   displayReview();
 })
@@ -310,13 +310,13 @@ submit.addEventListener('click', function() {
 
 //Generate review blocks
 var index = 0;
-var id = 0;
+var storeId = 0;
 var reviewPosition = document.getElementById('userComment');
 function displayReview () {
   clearResult(reviewPosition);
   index = 0;
 
-  while (index < _.pick(myPlaces[id], 'userComment').userComment.user.length) {
+  while (index < _.pick(myPlaces[storeId], 'userComment').userComment.user.length) {
   // while (index < userComment.length) {
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
@@ -324,13 +324,13 @@ function displayReview () {
     reviewPanelHeading.setAttribute('class', 'panel-heading');
     var uName = document.createElement('span');
     uName.setAttribute('class', 'userName');
-    var nameText = document.createTextNode(_.pick(myPlaces[id], 'userComment').userComment.user[index]);
+    var nameText = document.createTextNode(_.pick(myPlaces[storeId], 'userComment').userComment.user[index]);
 
     uName.appendChild(nameText);
     reviewPanelHeading.appendChild(uName);
 
     var breakLine = document.createElement('div');
-    for (var j = 0; j < _.pick(myPlaces[id], 'userComment').userComment.star[index]; j++) {
+    for (var j = 0; j < _.pick(myPlaces[storeId], 'userComment').userComment.star[index]; j++) {
       var reviewStar = document.createElement('span');
       reviewStar.setAttribute('class', 'fa fa-star');
       breakLine.appendChild(reviewStar);
@@ -342,7 +342,7 @@ function displayReview () {
 
     var comment = document.createElement('div');
     comment.setAttribute('class', 'panel-body');
-    var commenText = document.createTextNode(_.pick(myPlaces[id], 'userComment').userComment.comment[index]);
+    var commenText = document.createTextNode(_.pick(myPlaces[storeId], 'userComment').userComment.comment[index]);
 
     comment.appendChild(commenText);
     reviewPanel.appendChild(comment);
@@ -370,6 +370,7 @@ for (info in restaurantInfo[1]) {
   businessHours.appendChild(day);
 }
 
+// Adds Tag to user comment
 function addReviewTag (targetNode) {
   var tagSet = document.createElement('div');
   tagSet.setAttribute('class', 'btn-group pull-right');
@@ -420,5 +421,3 @@ function addReviewTag (targetNode) {
   }
   targetNode.appendChild(tagSet);
 }
-
-console.log(position);
