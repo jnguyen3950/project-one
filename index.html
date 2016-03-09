@@ -56,26 +56,66 @@
 
   <!-- Central heading -->
   <div class="container" id="jumbotronHeader">
-    <div class="jumbotron text-center">
+    <div class="jumbotron">
         <h1>Found a new place?</h1>
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
-        <form class="form-horizontal hidden" id="newPlaceForm">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Place Name:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="newPlaceName" placeholder="The Place Name">
+        <!-- <div>
+          <form class="hidden" id="newPlaceForm">
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="control-label">Place Name:</label>
+                <input type="text" class="form-control" id="newPlaceName" placeholder="The Place Name">
+              </div>
+              <div class="form-group">
+                <label class="control-label">Place Name:</label>
+                <input type="text" class="form-control" id="newPlaceName" placeholder="The Place Name">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Place Information:</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Place Information:</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
+              </div>
             </div>
-          </div>
-          <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
+            <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
+          </form>
         </form>
-      </div>
+      </div> -->
+
+      <form class="form-horizontal" id=newPlaceForm>
+        <div class="form-group">
+          <label for="name" class="col-md-2 control-label">Place Name:</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="newPlaceName" placeholder="The Place Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Type" class="col-md-2 control-label">Category</label>
+          <div class="col-md-4">
+            <select class="form-control c-select">
+              <option selected>Category</option>
+              <option value="1">Restaurant</option>
+              <option value="2">Bar</option>
+              <option value="3">Misc.</option>
+            </select>
+          </div>
+          <label for="Picture" class="col-md-2 control-label">Picture</label>
+          <div class="col-md-4">
+            <label class="file">
+              <input type="file" class="file-input btn btn-default btn-file" id="pictureFile"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label">Place Information:</label>
+          <div class="col-md-10">
+            <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
+          </div>
+        </div>
+        <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
+      </form>
+    </div>
   </div>
 
   <div class="container-fluid">
@@ -156,6 +196,7 @@
   <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/function.js"></script>
   <script src="js/default.js"></script>
 </body>
 </html>
