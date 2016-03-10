@@ -10,7 +10,9 @@ listReview();
 
 position.addEventListener('click', function(event) {
   if (event.target.classList.contains('media-object')) {
+    storeId = event.target.getAttribute('data-id');
     switchToReview();
+    displayReview();
   }
 })
 
@@ -93,12 +95,12 @@ addNewButton.addEventListener('click', function() {
 })
 
 //Submit new place button
-var submit = document.getElementById('submitNewPlace');
+var submitPlace = document.getElementById('submitNewPlace');
 var namePlaceInput = document.getElementById('newPlaceName');
 var pictureInput = document.getElementById('pictureFile');
 var descriptionInput = document.getElementById('newPlaceInfo');
 
-submit.addEventListener('click', function() {
+submitPlace.addEventListener('click', function() {
   // Local new place object
   var newPlace = {
     storeId: 0,
