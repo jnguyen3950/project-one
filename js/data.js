@@ -70,16 +70,6 @@ var restaurantInfo = [
   }
 ]
 
-// New objects
-var newPlace = {
-  placeName: '',
-  placeType: 'restaurant',
-  star: 0,
-  picture: 'restaurant4.jpg',
-  info: '',
-  refLink: '#'
-}
-
 var newComment = {
   userName: '',
   star: 0,

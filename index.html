@@ -52,67 +52,66 @@
   <!-- Search result -->
   <div class="container" id="searchBlock"></div>
 
-  <div class="clearfix"></div>
-
-  <!-- Central heading -->
-  <div class="container" id="jumbotronHeader">
-    <div class="jumbotron">
-      <h1>Found a new place?</h1>
-      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
-      <form class="form-horizontal" id=newPlaceForm>
-        <div class="form-group">
-          <label for="name" class="col-md-2 control-label">Place Name:</label>
-          <div class="col-md-10">
-            <input type="text" class="form-control" id="newPlaceName" placeholder="The Place Name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="Type" class="col-md-2 control-label">Category</label>
-          <div class="col-md-4">
-            <select class="form-control c-select" id="newPlaceCategory">
-              <option selected>Category</option>
-              <option value="restaurant">Restaurant</option>
-              <option value="bar">Bar</option>
-              <option value="misc">Misc.</option>
-            </select>
-          </div>
-          <label for="Picture" class="col-md-2 control-label">Picture</label>
-          <div class="col-md-4">
-            <label class="file">
-              <input type="file" class="file-input btn btn-default btn-file" id="pictureFile"></span>
-            </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-2 control-label">Place Information:</label>
-          <div class="col-md-10">
-            <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
-          </div>
-        </div>
-        <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
-      </form>
+  <div class="container-fluid">
+    <!-- Left sidebar -->
+    <div id="leftSidebar" class="col-md-2 hidden-sm sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a>Category</a></li>
+        <li><a href="#" class="cateRestaurant">Restaurant</a></li>
+        <li><a href="#" class="cateBar">Bar</a></li>
+      </ul>
     </div>
   </div>
 
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Left sidebar -->
-      <div id="leftSidebar" class="col-md-1 hidden-sm sidebar">
-        <ul class="nav nav-sidebar">
-          <li class="active"><a>Category</a></li>
-          <li><a href="#" class="cateRestaurant">Restaurant</a></li>
-          <li><a href="#" class="cateBar">Bar</a></li>
-        </ul>
+  <div class="container-fluid" id="jumbotronHeader">
+    <!-- Central heading -->
+    <div class="jumbotron col-md-8 col-md-offset-2">
+      <h1>Found a new place?</h1>
+      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
+      <div class="panel panel-default" id=newPlaceForm>
+        <div class="panel-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="name" class="col-md-2 control-label">Place Name:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="newPlaceName" placeholder="The Place Name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Type" class="col-md-2 control-label">Category</label>
+              <div class="col-md-10">
+                <select class="form-control c-select" id="newPlaceCategory">
+                  <option value="misc" selected>Category</option>
+                  <option value="restaurant">Restaurant</option>
+                  <option value="bar">Bar</option>
+                  <option value="misc">Misc.</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">Place Information:</label>
+              <div class="col-md-10">
+                <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
+              </div>
+            </div>
+            <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
+          </form>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
 
       <!-- Review boxes -->
-      <div class="col-md-8 col-md-offset-1" id="mediaBlock">
-        <h1>Recent popular reviews:</h1>
+      <div class="col-md-12" id="mediaBlock">
+        <h1>Recent reviews:</h1>
       </div>
 
       <!-- User Comment -->
-      <div class="col-md-8 col-md-offset-1 hidden" id="userComment">
+      <div class="col-md-12 hidden" id="userComment">
         <h2 >You are reviewing: </h2>
       </div>
 

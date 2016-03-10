@@ -3,9 +3,8 @@
 }
 
 #leftSidebar {
-  position: relative;
-  top: 0px;
-  left: 0px;
+  position: fixed;
+  height: 310px;
 }
 
 #rightSidebar {
@@ -24,6 +23,7 @@
 .btn-lg {
   background-color: rgba(230, 0, 0, 0.7);
   border-color: rgba(230, 0, 0, 1);
+  margin-bottom: 10px;
 }
 
 .userName {

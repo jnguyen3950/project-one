@@ -82,7 +82,7 @@ for (var i = 0; i < cateBar.length; i++) {
   })
 }
 
-//Generate comment blocks
+//Generate list of business blocks
 var mediaClass = document.getElementsByClassName('media');
 for (var i = 0; i < mediaClass.length; i++) {
   mediaClass[i].addEventListener('click', function(event) {
@@ -105,11 +105,28 @@ var pictureInput = document.getElementById('pictureFile');
 var descriptionInput = document.getElementById('newPlaceInfo');
 
 submit.addEventListener('click', function() {
+  // Local new place object
+  var newPlace = {
+    storeId: 0,
+    placeName: '',
+    placeType: 'restaurant',
+    star: 0,
+    picture: 'restaurant1.jpg',
+    info: '',
+    userComment: {
+      user: [],
+      reviewStar: [],
+      comment: []
+    }
+  }
+
   newPlace.placeName = namePlaceInput.value;
   newPlace.info = descriptionInput.value;
   newPlace.placeType = newPlaceCategory.value;
+  newPlace.storeId = myPlaces.length;
   console.log(newPlace.placeType);
   myPlaces.push(newPlace);
+  console.log(myPlaces);
   toggle('hidden', newPlaceForm);
   listReview();
 })
@@ -121,13 +138,13 @@ var ratingInput = document.getElementsByName('rating-input');
 var reviewInput = document.getElementById('review-text');
 
 submit.addEventListener('click', function() {
-  _.pick(myPlaces[id], 'userComment').userComment.user.push(nameInput.value);
+  _.pick(myPlaces[storeId], 'userComment').userComment.user.push(nameInput.value);
   for(var i = 0; i < ratingInput.length; i++) {
     if(ratingInput[i].checked) {
-      _.pick(myPlaces[id], 'userComment').userComment.reviewStar.push(parseInt(ratingInput[i].value));
+      _.pick(myPlaces[storeId], 'userComment').userComment.reviewStar.push(parseInt(ratingInput[i].value));
     }
   }
-  _.pick(myPlaces[id], 'userComment').userComment.comment.push(reviewInput.value);
+  _.pick(myPlaces[storeId], 'userComment').userComment.comment.push(reviewInput.value);
   displayReview();
 })
 //End review modal block
