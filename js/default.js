@@ -10,23 +10,15 @@ listReview();
 
 position.addEventListener('click', function(event) {
   if (event.target.classList.contains('media-object')) {
-    toggle('hidden', reviewPosition);
-    toggle('hidden', jumbotronHeader);
-    toggle('hidden', position);
-    toggle('hidden', reviewBtn);
-    toggle('hidden', searchBlock);
+    switchToReview();
   }
 })
 
 searchBlock.addEventListener('click', function(event) {
   if (event.target.classList.contains('media-object') && reviewPosition.classList.contains('hidden')) {
     storeId = event.target.getAttribute('data-id');
+    switchToReview();
     displayReview();
-    toggle('hidden', reviewPosition);
-    toggle('hidden', jumbotronHeader);
-    toggle('hidden', position);
-    toggle('hidden', reviewBtn);
-    toggle('hidden', searchBlock);
   }
   else if (event.target.classList.contains('media-object')) {
     storeId = event.target.getAttribute('data-id');
@@ -178,13 +170,3 @@ function businessDetail() {
     businessHours.appendChild(day);
   }
 }
-
-        // <li class="active"><a>Business Information:</a></li>
-
-// var businessHours = document.getElementById('businessHours');
-// for (info in restaurantInfo[1]) {
-//   var day = document.createElement('li');
-//   var typeText = document.createTextNode(info + ' : ' + restaurantInfo[1][info]);
-//   day.appendChild(typeText);
-//   businessHours.appendChild(day);
-// }

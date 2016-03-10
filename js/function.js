@@ -221,6 +221,7 @@ function home() {
   else {
     toggle('hidden', reviewPosition);
     toggle('hidden', reviewBtn);
+    toggle('hidden', rightSidebar);
   }
   if (position.classList.contains('hidden')) {
     toggle('hidden', position);
@@ -228,6 +229,15 @@ function home() {
   if (searchBlock.classList.contains('hidden')) {
     toggle('hidden', searchBlock);
   }
+}
+
+function switchToReview() {
+  toggle('hidden', reviewPosition);
+  toggle('hidden', jumbotronHeader);
+  toggle('hidden', position);
+  toggle('hidden', reviewBtn);
+  toggle('hidden', searchBlock);
+  toggle('hidden', rightSidebar);
 }
 
 // Adds Tag to user comment

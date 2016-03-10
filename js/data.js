@@ -64,7 +64,7 @@ var myPlaces = [
     businessInfo: {
       Price: "$$"
     },
-    hour: {
+    hours: {
       Mon: "4am - 10pm",
       Tue: "5am - 9pm",
       Wed: "6am - 8pm",
@@ -106,5 +106,3 @@ var newComment = {
   star: 0,
   info: ''
 }
-
-console.log(_.pick(myPlaces[0], 'businessInfo').businessInfo.Price);
