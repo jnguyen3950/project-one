@@ -50,7 +50,11 @@
   <!-- End navbar -->
 
   <!-- Search result -->
-  <div class="container" id="searchBlock"></div>
+  <div class="panel panel-default">
+    <div>
+      <div class="container" id="searchBlock"></div>
+    </div>
+  </div>
 
   <div class="container-fluid">
     <!-- Left sidebar -->
@@ -59,6 +63,17 @@
         <li class="active"><a>Category</a></li>
         <li><a href="#" class="cateRestaurant">Restaurant</a></li>
         <li><a href="#" class="cateBar">Bar</a></li>
+      </ul>
+    </div>
+    <!-- Right side bar -->
+    <div id="rightSidebar" class="col-md-2 col-md-offset-10 hidden-sm sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a>Business Information:</a></li>
+        <li id="businessInfo"></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li class="active"><a>Hours:</a></li>
+        <li id="businessHours"></li>
       </ul>
     </div>
   </div>
@@ -71,7 +86,7 @@
       <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
       <div class="panel panel-default" id=newPlaceForm>
         <div class="panel-body">
-          <form class="form-horizontal">
+          <form class="form-horizontal text-center">
             <div class="form-group">
               <label for="name" class="col-md-2 control-label">Place Name:</label>
               <div class="col-md-10">
@@ -95,34 +110,23 @@
                 <textarea class="form-control" row="2" id="newPlaceInfo" placeholder="Tell us about this place."></textarea>
               </div>
             </div>
-            <input type="button" class="btn btn-default" value="Submit" id="submitNewPlace"></input>
+            <input type="button" class="btn btn-success btn-lg" value="Submit" id="submitNewPlace"></input>
           </form>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-
       <!-- Review boxes -->
-      <div class="col-md-12" id="mediaBlock">
+      <div class="col-md-8 col-md-offset-2" id="mediaBlock">
         <h1>Recent reviews:</h1>
       </div>
 
       <!-- User Comment -->
-      <div class="col-md-12 hidden" id="userComment">
+      <div class="col-md-8 col-md-offset-2 hidden" id="userComment">
         <h2 >You are reviewing: </h2>
-      </div>
-
-      <!-- Right side bar -->
-      <div id="rightSidebar" class="col-md-2 col-md-offset-10 hidden-sm sidebar hidden">
-        <ul class="nav nav-sidebar" id="businessInfo">
-          <li class="active"><a>Business Information:</a></li>
-        </ul>
-        <ul class="nav nav-sidebar" id="businessHours">
-          <li class="active"><a>Hours:</a></li>
-        </ul>
       </div>
 
     </div>

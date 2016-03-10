@@ -33,6 +33,7 @@ searchBlock.addEventListener('click', function(event) {
     displayReview();
     toggle('hidden', searchBlock);
   }
+  businessDetail();
 })
 
 document.getElementById('logo').addEventListener('click', function() {
@@ -89,6 +90,7 @@ for (var i = 0; i < mediaClass.length; i++) {
     if (event.target.classList.contains('media-object')) {
       storeId = event.target.getAttribute('data-id');
       displayReview();
+      businessDetail();
     }
   })
 }
@@ -124,9 +126,7 @@ submit.addEventListener('click', function() {
   newPlace.info = descriptionInput.value;
   newPlace.placeType = newPlaceCategory.value;
   newPlace.storeId = myPlaces.length;
-  console.log(newPlace.placeType);
   myPlaces.push(newPlace);
-  console.log(myPlaces);
   toggle('hidden', newPlaceForm);
   listReview();
 })
@@ -157,19 +157,34 @@ var reviewPosition = document.getElementById('userComment');
 displayReview();
 //End generate blocks
 
-//Business info
-var businessInfo = document.getElementById('businessInfo');
-for (info in restaurantInfo[0]) {
-  var businessType = document.createElement('li');
-  var typeText = document.createTextNode(info + ' : ' + restaurantInfo[0][info]);
-  businessType.appendChild(typeText);
-  businessInfo.appendChild(businessType);
+//Display business info
+function businessDetail() {
+  var businessInfo = document.getElementById('businessInfo');
+  clearResult(businessInfo);
+
+  for (info in _.pick(myPlaces[storeId], 'businessInfo').businessInfo) {
+    var businessType = document.createElement('li');
+    var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'businessInfo').businessInfo[info]);
+    businessType.appendChild(typeText);
+    businessInfo.appendChild(businessType);
+  }
+  var businessHours = document.getElementById('businessHours');
+  clearResult(businessHours);
+
+  for (info in _.pick(myPlaces[storeId], 'hours').hours) {
+    var day = document.createElement('li');
+    var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'hours').hours[info]);
+    day.appendChild(typeText);
+    businessHours.appendChild(day);
+  }
 }
 
-var businessHours = document.getElementById('businessHours');
-for (info in restaurantInfo[1]) {
-  var day = document.createElement('li');
-  var typeText = document.createTextNode(info + ' : ' + restaurantInfo[1][info]);
-  day.appendChild(typeText);
-  businessHours.appendChild(day);
-}
+        // <li class="active"><a>Business Information:</a></li>
+
+// var businessHours = document.getElementById('businessHours');
+// for (info in restaurantInfo[1]) {
+//   var day = document.createElement('li');
+//   var typeText = document.createTextNode(info + ' : ' + restaurantInfo[1][info]);
+//   day.appendChild(typeText);
+//   businessHours.appendChild(day);
+// }

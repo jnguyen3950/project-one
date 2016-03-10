@@ -3,26 +3,23 @@
 }
 
 #leftSidebar {
-  position: fixed;
-  height: 310px;
+  position: absolute;
+  height: 350px;
 }
 
 #rightSidebar {
-  position: absolute;
+  position: fixed;
   float: right;
-  height: 400px;
-  top: 100px;
-  right: 0px;
+  height: 350px;
 }
 
 .media {
   border: 2px solid black;
   border-radius: 10px;
+  margin: 10px;
 }
 
 .btn-lg {
-  background-color: rgba(230, 0, 0, 0.7);
-  border-color: rgba(230, 0, 0, 1);
   margin-bottom: 10px;
 }
 

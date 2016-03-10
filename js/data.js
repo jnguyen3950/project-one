@@ -10,6 +10,18 @@ var myPlaces = [
       user: ["Justin", "Joe"],
       reviewStar: [4, 4],
       comment: ["Elit viverra proin aptent ad purus interdum condimentum ipsum eros etiam ridiculus adipiscing vestibulum.", "Cum mattis arcu odio cursus urna porta a suspendisse dignissim quam hac condimentum fringilla."]
+    },
+    businessInfo: {
+      Price: "$"
+    },
+    hours: {
+      Mon: "9am - 10pm",
+      Tue: "9am - 10pm",
+      Wed: "9am - 10pm",
+      Thu: "9am - 10pm",
+      Fri: "9am - 10pm",
+      Sat: "9am - 10pm",
+      Sun: "Closed"
     }
   },
   {
@@ -23,6 +35,18 @@ var myPlaces = [
       user: ["Calvin", "Clark"],
       reviewStar: [3, 4],
       comment: ["Ullamcorper a parturient adipiscing ac odio adipiscing a vitae vestibulum condimentum hac senectus ultrices adipiscing adipiscing.", "A a eros lacus vestibulum mus ante eros montes parturient a phasellus congue diam auctor parturient."]
+    },
+    businessInfo: {
+      Price: "$$$"
+    },
+    hours: {
+      Mon: "8am - 8pm",
+      Tue: "8am - 8pm",
+      Wed: "8am - 8pm",
+      Thu: "8am - 8pm",
+      Fri: "8am - 8pm",
+      Sat: "8am - 8pm",
+      Sun: "8am - 8pm"
     }
   },
   {
@@ -36,6 +60,18 @@ var myPlaces = [
       user: ["Mindy", "Moe"],
       reviewStar: [2, 4],
       comment: ["Rhoncus amet aenean fringilla platea consequat vestibulum magnis tristique metus potenti parturient.", "Fames adipiscing per massa nulla condimentum a hendrerit a vel at risus cursus non parturient integer ullamcorper gravida nibh ullamcorper condimentum mus in parturient nulla. Habitasse ac nisl a felis ac quisque curabitur consequat condimentum ultricies vel cubilia rhoncus erat facilisi lacus sed."]
+    },
+    businessInfo: {
+      Price: "$$"
+    },
+    hour: {
+      Mon: "4am - 10pm",
+      Tue: "5am - 9pm",
+      Wed: "6am - 8pm",
+      Thu: "7am - 7pm",
+      Fri: "8am - 6pm",
+      Sat: "9am - 5pm",
+      Sun: "10am - 4pm"
     }
   },
   {
@@ -49,29 +85,26 @@ var myPlaces = [
       user: ["Dee", "Darcy"],
       reviewStar: [5, 4],
       comment: ["Venenatis luctus vestibulum ultricies eleifend risus feugiat a vehicula sodales orci suspendisse pellentesque.", "Mi est parturient a maecenas tincidunt a dignissim parturient parturient pretium adipiscing vivamus."]
+    },
+    businessInfo: {
+      Price: "$$$$"
+    },
+    hours: {
+      Mon: "12am - 12pm",
+      Tue: "12am - 12pm",
+      Wed: "12am - 12pm",
+      Thu: "12am - 12pm",
+      Fri: "12am - 12pm",
+      Sat: "12am - 12pm",
+      Sun: "12am - 12pm"
     }
   }
 ];
-
-var restaurantInfo = [
-  {
-    Type: "Restaurant",
-    Price: "$$",
-    Open_now: "Yes"
-  },
-  {
-    Mon: "9am - 10pm",
-    Tue: "9am - 10pm",
-    Wed: "9am - 10pm",
-    Thu: "9am - 10pm",
-    Fri: "9am - 10pm",
-    Sat: "9am - 10pm",
-    Sun: "9am - 10pm"
-  }
-]
 
 var newComment = {
   userName: '',
   star: 0,
   info: ''
 }
+
+console.log(_.pick(myPlaces[0], 'businessInfo').businessInfo.Price);
