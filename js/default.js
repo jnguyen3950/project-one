@@ -133,11 +133,17 @@ var reviewInput = document.getElementById('review-text');
 
 submit.addEventListener('click', function() {
   _.pick(myPlaces[storeId], 'userComment').userComment.user.push(nameInput.value);
-  for(var i = 0; i < ratingInput.length; i++) {
-    if(ratingInput[i].checked) {
-      _.pick(myPlaces[storeId], 'userComment').userComment.reviewStar.push(parseInt(ratingInput[i].value));
-    }
-  }
+
+  // for(var i = 0; i < ratingInput.length; i++) {
+  //   if(ratingInput[i].checked) {
+  //     _.pick(myPlaces[storeId], 'userComment').userComment.reviewStar.push(parseInt(ratingInput[i].value));
+  //   }
+  // }
+
+  var starInput = document.getElementById('starInput');
+  _.pick(myPlaces[storeId], 'userComment').userComment.reviewStar.push(parseInt(starInput.value));
+
+
   _.pick(myPlaces[storeId], 'userComment').userComment.comment.push(reviewInput.value);
   displayReview();
 })
