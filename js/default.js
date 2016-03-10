@@ -98,13 +98,17 @@ addNewButton.addEventListener('click', function() {
   toggle('hidden', newPlaceForm)
 })
 
+//Submit new place button
 var submit = document.getElementById('submitNewPlace');
 var namePlaceInput = document.getElementById('newPlaceName');
+var pictureInput = document.getElementById('pictureFile');
 var descriptionInput = document.getElementById('newPlaceInfo');
 
 submit.addEventListener('click', function() {
   newPlace.placeName = namePlaceInput.value;
   newPlace.info = descriptionInput.value;
+  newPlace.placeType = newPlaceCategory.value;
+  console.log(newPlace.placeType);
   myPlaces.push(newPlace);
   toggle('hidden', newPlaceForm);
   listReview();

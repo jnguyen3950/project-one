@@ -93,7 +93,6 @@ function displayReview () {
   reviewPosition.appendChild(reviewHeading);
 
   while (index < _.pick(myPlaces[storeId], 'userComment').userComment.user.length) {
-  // while (index < userComment.length) {
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
     var reviewPanelHeading = document.createElement('div');
