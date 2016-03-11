@@ -60,12 +60,12 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
 })
 
 document.getElementById('sortDesc').addEventListener('click', function() {
-  sortArray(myPlaces);
+  sortArray(myPlaces, true);
   listReview();
 })
 
 document.getElementById('sortAsc').addEventListener('click', function() {
-  sortArray(myPlaces);
+  sortArray(myPlaces, false);
   listReview();
 })
 

@@ -173,10 +173,17 @@ function displaySearchResult(object) {
 //End media search result
 
 //Function Sort
-function sortArray(array) {
-  myPlaces.sort(function(a, b) {
-    return a.star - b.star;
-  })
+function sortArray(array, bool) {
+  if(bool == true) {
+    array.sort(function(a, b) {
+      return a.star - b.star;
+    })
+  }
+  else {
+    array.sort(function(a, b) {
+      return b.star - a.star;
+    })
+  }
 }
 
 //Search engine
