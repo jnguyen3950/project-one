@@ -3,7 +3,7 @@ var myPlaces = [
     storeId: 0,
     placeName: "Hometown",
     placeType: "restaurant",
-    star: 4,
+    star: 0,
     picture: "restaurant1.jpg",
     info: "Hac blandit a sit a pharetra parturient diam proin ipsum natoque aliquam porttitor elementum parturient est.Vehicula morbi bibendum montes suspendisse ut a nulla vel sagittis montes eu ornare mi a adipiscing vestibulum vestibulum.",
     userComment: {
@@ -28,7 +28,7 @@ var myPlaces = [
     storeId: 1,
     placeName: "Shrimp",
     placeType: "bar",
-    star: 3,
+    star: 0,
     picture: "restaurant2.jpg",
     info: "Lacinia ante erat neque non justo malesuada per nostra ipsum curae adipiscing euismod consequat.",
     userComment: {
@@ -53,7 +53,7 @@ var myPlaces = [
     storeId: 2,
     placeName: "Toasted",
     placeType: "restaurant",
-    star: 5,
+    star: 0,
     picture: "restaurant3.jpg",
     info: "Nunc ridiculus enim praesent cubilia sed enim dignissim convallis class est vestibulum ullamcorper.",
     userComment: {
@@ -78,7 +78,7 @@ var myPlaces = [
     storeId: 3,
     placeName: "Bubble",
     placeType: "bar",
-    star: 4,
+    star: 0,
     picture: "restaurant4.jpg",
     info: "Gravida condimentum commodo magnis tristique scelerisque penatibus etiam donec et interdum aliquam imperdiet vivamus dignissim.",
     userComment: {

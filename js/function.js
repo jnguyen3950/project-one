@@ -47,7 +47,7 @@ function listReview() {
     mediaInit.appendChild(mediaBody);
     //End generating media block
 
-    position.appendChild(mediaInit);
+    position.insertBefore(mediaInit, position.firstChild);
 
     //Place name block
     var place = document.getElementById('mediaHeader'+indexMedia);
@@ -64,6 +64,7 @@ function listReview() {
       calculatedStar += _.pick(myPlaces[indexMedia], 'userComment').userComment.reviewStar[i];
     }
     calculatedStar = calculatedStar / _.pick(myPlaces[indexMedia], 'userComment').userComment.reviewStar.length;
+    myPlaces[indexMedia].star = calculatedStar;
 
     for (var i = 1; i <= calculatedStar; i++) {
       var positionStar = document.getElementById('reviewStar'+(i+(indexMedia*5)));
@@ -134,40 +135,8 @@ function displayReview () {
   }
 }
 
-//Search engine
-function searchData() {
-  clearResult(searchBlock);
-  var found = false;
-  var input = document.getElementById('searchBox');
-  for(var i = 0; i < myPlaces.length; i++) {
-    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase() ||
-        myPlaces[i].placeType.toLowerCase() == input.value.toLowerCase()) {
-      displayResult(myPlaces[i]);
-      found = true;
-    }
-  }
-  if(found == false) {
-    var noResultEl = document.createElement('h1')
-    var noResultText = document.createTextNode('No result found.');
-    noResultEl.appendChild(noResultText);
-    searchBlock.appendChild(noResultEl);
-  }
-}
-
-// Search by name or category
-function searchCategory(key) {
-  clearResult(searchBlock);
-  var input = document.getElementById('searchBox');
-  for(var i = 0; i < myPlaces.length; i++) {
-    if(myPlaces[i].placeName.toLowerCase() == key ||
-        myPlaces[i].placeType.toLowerCase() == key) {
-      displayResult(myPlaces[i]);
-    }
-  }
-}
-
 // Media that display search result
-function displayResult(object) {
+function displaySearchResult(object) {
   var resultImage = document.createElement('img');
   resultImage.setAttribute('class', 'media-object');
   resultImage.setAttribute('src', 'images/' + object.picture);
@@ -202,6 +171,45 @@ function displayResult(object) {
   searchBlock.appendChild(mediaSearchResult);
 }
 //End media search result
+
+//Function Sort
+myPlaces.sort(function(a, b) {
+  return a.star - b.star;
+})
+
+console.log(myPlaces);
+
+//Search engine
+function searchData() {
+  clearResult(searchBlock);
+  var found = false;
+  var input = document.getElementById('searchBox');
+  for(var i = 0; i < myPlaces.length; i++) {
+    if(myPlaces[i].placeName.toLowerCase() == input.value.toLowerCase() ||
+        myPlaces[i].placeType.toLowerCase() == input.value.toLowerCase()) {
+      displaySearchResult(myPlaces[i]);
+      found = true;
+    }
+  }
+  if(found == false) {
+    var noResultEl = document.createElement('h1')
+    var noResultText = document.createTextNode('No result found.');
+    noResultEl.appendChild(noResultText);
+    searchBlock.appendChild(noResultEl);
+  }
+}
+
+// Search by name or category
+function searchCategory(key) {
+  clearResult(searchBlock);
+  var input = document.getElementById('searchBox');
+  for(var i = 0; i < myPlaces.length; i++) {
+    if(myPlaces[i].placeName.toLowerCase() == key ||
+        myPlaces[i].placeType.toLowerCase() == key) {
+      displaySearchResult(myPlaces[i]);
+    }
+  }
+}
 
 //Clear search result node function
 function clearResult(result) {
