@@ -104,12 +104,14 @@ function displayReview () {
   while (index < _.pick(myPlaces[storeId], 'userComment').userComment.user.length) {
     var reviewPanel = document.createElement('div');
     reviewPanel.setAttribute('class', 'panel panel-default');
+
+    addReviewTag(reviewPanel);
+
     var reviewPanelHeading = document.createElement('div');
     reviewPanelHeading.setAttribute('class', 'panel-heading');
     var uName = document.createElement('span');
     uName.setAttribute('class', 'userName');
     var nameText = document.createTextNode(_.pick(myPlaces[storeId], 'userComment').userComment.user[index]);
-
     uName.appendChild(nameText);
     reviewPanelHeading.appendChild(uName);
 
@@ -119,10 +121,9 @@ function displayReview () {
       reviewStar.setAttribute('class', 'fa fa-star');
       breakLine.appendChild(reviewStar);
     }
+
     reviewPanelHeading.appendChild(breakLine);
     reviewPanel.appendChild(reviewPanelHeading);
-
-    addReviewTag(reviewPosition);
 
     var comment = document.createElement('div');
     comment.setAttribute('class', 'panel-body');
@@ -133,6 +134,7 @@ function displayReview () {
     reviewPosition.appendChild(reviewPanel);
     index = index + 1;
   }
+  businessDetail();
 }
 
 // Media that display search result
@@ -321,4 +323,29 @@ function addReviewTag (targetNode) {
     }
   }
   targetNode.appendChild(tagSet);
+}
+
+//Display business info
+function businessDetail() {
+  var businessInfo = document.getElementById('businessInfo');
+  clearResultExcept(businessInfo);
+
+  for (info in _.pick(myPlaces[storeId], 'businessInfo').businessInfo) {
+    var businessType = document.createElement('li');
+    businessType.setAttribute('class', 'list-group-item');
+    var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'businessInfo').businessInfo[info]);
+    businessType.appendChild(typeText);
+    businessInfo.appendChild(businessType);
+  }
+  var businessHours = document.getElementById('businessHours');
+  clearResultExcept(businessHours);
+
+  var day = document.createElement('li');
+  day.setAttribute('class', 'list-group-item');
+  for (info in _.pick(myPlaces[storeId], 'hours').hours) {
+    var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'hours').hours[info]);
+    day.appendChild(document.createElement('br'));
+    day.appendChild(typeText);
+    businessHours.appendChild(day);
+  }
 }
