@@ -173,11 +173,11 @@ function displaySearchResult(object) {
 //End media search result
 
 //Function Sort
-myPlaces.sort(function(a, b) {
-  return a.star - b.star;
-})
-
-console.log(myPlaces);
+function sortArray(array) {
+  myPlaces.sort(function(a, b) {
+    return a.star - b.star;
+  })
+}
 
 //Search engine
 function searchData() {
