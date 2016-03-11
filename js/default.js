@@ -125,7 +125,6 @@ submitPlace.addEventListener('click', function() {
       comment: []
     }
   }
-
   newPlace.placeName = namePlaceInput.value;
   newPlace.info = descriptionInput.value;
   newPlace.placeType = newPlaceCategory.value;

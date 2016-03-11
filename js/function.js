@@ -153,8 +153,16 @@ function displaySearchResult(object) {
 
   var resultHeading = document.createElement('h2');
   resultHeading.setAttribute('class', 'media-heading');
+
   var resultHeadingText = document.createTextNode(object.placeName);
   resultHeading.appendChild(resultHeadingText);
+  resultHeading.appendChild(document.createElement('br'));
+
+  for(var i = 0; i < object.star; i++) {
+    var resultStar = document.createElement('span');
+    resultStar.setAttribute('class', 'fa fa-star');
+    resultHeading.appendChild(resultStar);
+  }
 
   var resultPara = document.createElement('p');
   var resultText = document.createTextNode(object.info);
