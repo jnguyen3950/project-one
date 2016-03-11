@@ -235,8 +235,8 @@ function clearResult(result) {
   }
 }
 
-function clearResultExcept(result) {
-  while(result.childNodes.length > 2) {
+function clearResultExcept(result, num) {
+  while(result.childNodes.length > num) {
     result.removeChild(result.lastChild);
   }
 }
@@ -255,18 +255,15 @@ function toggle(value, element) {
 function home() {
   if (jumbotronHeader.classList.contains('hidden')) {
     toggle('hidden', jumbotronHeader);
+    toggle('hidden', sortStar);
+    toggle('hidden', position);
+    toggle('hidden', searchBlock);
   }
   if (reviewPosition.classList.contains('hidden')) {}
   else {
     toggle('hidden', reviewPosition);
     toggle('hidden', reviewBtn);
     toggle('hidden', rightSidebar);
-  }
-  if (position.classList.contains('hidden')) {
-    toggle('hidden', position);
-  }
-  if (searchBlock.classList.contains('hidden')) {
-    toggle('hidden', searchBlock);
   }
   //Update Average Star
   listReview();
@@ -279,6 +276,7 @@ function switchToReview() {
   toggle('hidden', reviewBtn);
   toggle('hidden', searchBlock);
   toggle('hidden', rightSidebar);
+  toggle('hidden', sortStar);
 }
 
 // Adds Tag to user comment
@@ -336,7 +334,7 @@ function addReviewTag (targetNode) {
 //Display business info
 function businessDetail() {
   var businessInfo = document.getElementById('businessInfo');
-  clearResultExcept(businessInfo);
+  clearResultExcept(businessInfo, 2);
 
   for (info in _.pick(myPlaces[storeId], 'businessInfo').businessInfo) {
     var businessType = document.createElement('li');
@@ -345,15 +343,16 @@ function businessDetail() {
     businessType.appendChild(typeText);
     businessInfo.appendChild(businessType);
   }
+
   var businessHours = document.getElementById('businessHours');
-  clearResultExcept(businessHours);
+  clearResultExcept(businessHours, 2);
 
   var day = document.createElement('li');
   day.setAttribute('class', 'list-group-item');
   for (info in _.pick(myPlaces[storeId], 'hours').hours) {
     var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'hours').hours[info]);
-    day.appendChild(document.createElement('br'));
     day.appendChild(typeText);
+    day.appendChild(document.createElement('br'));
     businessHours.appendChild(day);
   }
 }

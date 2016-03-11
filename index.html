@@ -61,7 +61,7 @@
     <div class="jumbotron">
       <h1>Found a new place?</h1>
       <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
+      <a class="btn btn-lg btn-success" id="addNewPlace" href="#" role="button">Add new place</a>
       <div class="panel panel-default hidden" id=newPlaceForm>
         <div class="panel-body">
           <form class="form-horizontal text-center">
@@ -98,14 +98,13 @@
   <div class="container">
     <div class="row">
       <!-- Review boxes -->
-      <div>
+      <div id="sortStar">
         <h3>Sort rating star by
           <button type="button" class="btn btn-default btn-lg fa fa-sort-amount-desc" id="sortDesc"></button>
           <button type="button" class="btn btn-default btn-lg fa fa-sort-amount-asc" id="sortAsc"></button>
         </h3>
       </div>
       <div id="mediaBlock">
-        <h1>Recent reviews:</h1>
       </div>
       <!-- Right side bar -->
 
@@ -115,7 +114,6 @@
         </ul>
         <ul class="list-group" id="businessHours">
           <li class="list-group-item active">Hours:</li>
-          <li ></li>
         </ul>
       </div>
       <!-- User Comment -->
@@ -128,7 +126,7 @@
 
   <!-- Review Modal -->
   <p class ="panel-heading text-center">
-    <a class="btn btn-lg btn-primary hidden" id="reviewBtn" href="#myModal" data-toggle="modal"><span class="fa fa-star"></span> Write a Review</a>
+    <a class="btn btn-lg btn-success hidden" id="reviewBtn" href="#myModal" data-toggle="modal"><span class="fa fa-star"></span> Write a Review</a>
   </p>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
@@ -155,7 +153,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit-btn">Submit review</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="submit-btn">Submit review</button>
         </div>
       </div>
     </div>
