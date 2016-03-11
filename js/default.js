@@ -59,6 +59,16 @@ document.getElementById('searchBox').addEventListener('keypress', function(event
   }
 })
 
+document.getElementById('sortDesc').addEventListener('click', function() {
+  sortArray(myPlaces);
+  listReview();
+})
+
+document.getElementById('sortAsc').addEventListener('click', function() {
+  sortArray(myPlaces);
+  listReview();
+})
+
 var cateRestaurant = document.getElementsByClassName('cateRestaurant')
 for (var i = 0; i < cateRestaurant.length; i++) {
   cateRestaurant[i].addEventListener('click', function() {
