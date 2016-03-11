@@ -1,6 +1,3 @@
-//Keep track of generating media blocks.
-// var indexMedia = 0;
-
 //Generating store general review Media block
 function listReview() {
   var position = document.getElementById('mediaBlock');

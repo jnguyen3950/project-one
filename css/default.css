@@ -8,8 +8,9 @@
 }
 
 #rightSidebar {
-  position: fixed;
+  position: relative;
   float: right;
+  top: 0px;
   height: 350px;
 }
 
