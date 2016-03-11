@@ -154,20 +154,23 @@ submit.addEventListener('click', function() {
 //Display business info
 function businessDetail() {
   var businessInfo = document.getElementById('businessInfo');
-  clearResult(businessInfo);
+  clearResultExcept(businessInfo);
 
   for (info in _.pick(myPlaces[storeId], 'businessInfo').businessInfo) {
     var businessType = document.createElement('li');
+    businessType.setAttribute('class', 'list-group-item');
     var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'businessInfo').businessInfo[info]);
     businessType.appendChild(typeText);
     businessInfo.appendChild(businessType);
   }
   var businessHours = document.getElementById('businessHours');
-  clearResult(businessHours);
+  clearResultExcept(businessHours);
 
+  var day = document.createElement('li');
+  day.setAttribute('class', 'list-group-item');
   for (info in _.pick(myPlaces[storeId], 'hours').hours) {
-    var day = document.createElement('li');
     var typeText = document.createTextNode(info + ' : ' + _.pick(myPlaces[storeId], 'hours').hours[info]);
+    day.appendChild(document.createElement('br'));
     day.appendChild(typeText);
     businessHours.appendChild(day);
   }

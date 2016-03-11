@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/default.css">
   <link rel="stylesheet" href="css/navbar.css">
 </head>
@@ -57,20 +56,9 @@
     </div>
   </div>
 
-  <div class="container-fluid">
-    <!-- Left sidebar -->
-    <div id="leftSidebar" class="col-md-2 hidden-sm sidebar">
-      <ul class="nav nav-sidebar">
-        <li class="active"><a>Category</a></li>
-        <li><a href="#" class="cateRestaurant">Restaurant</a></li>
-        <li><a href="#" class="cateBar">Bar</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="container-fluid" id="jumbotronHeader">
+  <div class="container" id="jumbotronHeader">
     <!-- Central heading -->
-    <div class="jumbotron col-md-8 col-md-offset-2">
+    <div class="jumbotron">
       <h1>Found a new place?</h1>
       <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
       <a class="btn btn-lg btn-primary" id="addNewPlace" href="#" role="button">Add new place</a>
@@ -107,33 +95,42 @@
     </div>
   </div>
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <!-- Review boxes -->
       <div>
-        <h3>Sort by:
+        <h3>Sort rating star by
           <button type="button" class="btn btn-default btn-lg fa fa-sort-amount-desc" id="sortDesc"></button>
           <button type="button" class="btn btn-default btn-lg fa fa-sort-amount-asc" id="sortAsc"></button>
         </h3>
       </div>
-      <div class="col-md-8 col-md-offset-2" id="mediaBlock">
+      <div id="mediaBlock">
         <h1>Recent reviews:</h1>
       </div>
+      <!-- Right side bar -->
+
+      <div id="rightSidebar" class="col-md-3 hidden-sm hidden">
+        <ul class="list-group" id="businessInfo">
+          <li class="list-group-item active">Business Information:</li>
+        </ul>
+
+        <ul class="list-group">
+        </ul>
+
+        <ul class="list-group" id="businessHours">
+          <li class="list-group-item active">Hours:</li>
+          <li ></li>
+        </ul>
+
+        <ul class="nav nav-sidebar">
+
+        </ul>
+      </div>
       <!-- User Comment -->
-      <div class="col-md-8 col-md-offset-2 hidden" id="userComment">
+      <div class="hidden" id="userComment">
         <h2 >You are reviewing: </h2>
       </div>
-      <!-- Right side bar -->
-      <div id="rightSidebar" class="col-md-2 hidden-sm sidebar hidden">
-        <ul class="nav nav-sidebar">
-          <li class="active"><a>Business Information:</a></li>
-          <li id="businessInfo"></li>
-        </ul>
-        <ul class="nav nav-sidebar">
-          <li class="active"><a>Hours:</a></li>
-          <li id="businessHours"></li>
-        </ul>
-      </div>
+
     </div>
   </div>
 

@@ -225,6 +225,12 @@ function clearResult(result) {
   }
 }
 
+function clearResultExcept(result) {
+  while(result.childNodes.length > 2) {
+    result.removeChild(result.lastChild);
+  }
+}
+
 //Show and hide content function
 function toggle(value, element) {
   if (element.classList.contains('hidden')) {
