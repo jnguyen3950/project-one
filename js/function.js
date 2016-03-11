@@ -1,5 +1,11 @@
+//Keep track of generating media blocks.
+// var indexMedia = 0;
+
 //Generating store general review Media block
 function listReview() {
+  var position = document.getElementById('mediaBlock');
+  var indexMedia = 0;
+  clearResult(position);
   while (indexMedia < myPlaces.length) {
     //Generate Media Block
     var mediaInit = document.createElement('div');
@@ -44,7 +50,6 @@ function listReview() {
     mediaInit.appendChild(mediaBody);
     //End generating media block
 
-    var position = document.getElementById('mediaBlock');
     position.appendChild(mediaInit);
 
     //Place name block
@@ -57,9 +62,15 @@ function listReview() {
     // //End place name
 
     //Star block
-    for (var i = 1; i <= myPlaces[indexMedia].star; i++) {
-      var position = document.getElementById('reviewStar'+(i+(indexMedia*5)));
-      position.setAttribute('class', 'fa fa-star');
+    var calculatedStar = 0;
+    for (var i = 0; i < _.pick(myPlaces[indexMedia], 'userComment').userComment.reviewStar.length; i++) {
+      calculatedStar += _.pick(myPlaces[indexMedia], 'userComment').userComment.reviewStar[i];
+    }
+    calculatedStar = calculatedStar / _.pick(myPlaces[indexMedia], 'userComment').userComment.reviewStar.length;
+
+    for (var i = 1; i <= calculatedStar; i++) {
+      var positionStar = document.getElementById('reviewStar'+(i+(indexMedia*5)));
+      positionStar.setAttribute('class', 'fa fa-star');
     }
     //End Star block
 
@@ -78,7 +89,7 @@ function listReview() {
 // Generate user comment block
 function displayReview () {
   clearResult(reviewPosition);
-  index = 0;
+  var index = 0;
 
   // Review block store picture
   var reviewPicture = document.createElement('img');
@@ -229,6 +240,8 @@ function home() {
   if (searchBlock.classList.contains('hidden')) {
     toggle('hidden', searchBlock);
   }
+  //Update Average Star
+  listReview();
 }
 
 function switchToReview() {

@@ -1,10 +1,12 @@
-var indexMedia = 0;
+//Indicate which store is being targeted
+var storeId = 0;
 var searchBlock = document.getElementById('searchBlock');
 var jumbotronHeader = document.getElementById('jumbotronHeader');
 var position = document.getElementById('mediaBlock');
 var reviewBtn = document.getElementById('reviewBtn');
 var addNewButton = document.getElementById('addNewPlace');
 var newPlaceForm = document.getElementById('newPlaceForm');
+var reviewPosition = document.getElementById('userComment');
 
 listReview();
 
@@ -128,34 +130,16 @@ submitPlace.addEventListener('click', function() {
 //User review modal block
 var submit = document.getElementById('submit-btn');
 var nameInput = document.getElementById('name-text');
-var ratingInput = document.getElementsByName('rating-input');
+var starInput = document.getElementById('starInput');
 var reviewInput = document.getElementById('review-text');
 
 submit.addEventListener('click', function() {
   _.pick(myPlaces[storeId], 'userComment').userComment.user.push(nameInput.value);
-
-  // for(var i = 0; i < ratingInput.length; i++) {
-  //   if(ratingInput[i].checked) {
-  //     _.pick(myPlaces[storeId], 'userComment').userComment.reviewStar.push(parseInt(ratingInput[i].value));
-  //   }
-  // }
-
-  var starInput = document.getElementById('starInput');
   _.pick(myPlaces[storeId], 'userComment').userComment.reviewStar.push(parseInt(starInput.value));
-
-
   _.pick(myPlaces[storeId], 'userComment').userComment.comment.push(reviewInput.value);
   displayReview();
 })
 //End review modal block
-
-//Generate review blocks
-var index = 0;
-var storeId = 0;
-var reviewPosition = document.getElementById('userComment');
-
-displayReview();
-//End generate blocks
 
 //Display business info
 function businessDetail() {
