@@ -92,7 +92,7 @@ function displayReview () {
   // Review block store picture
   var reviewPicture = document.createElement('img');
   reviewPicture.setAttribute('src', 'images/restaurant' + (parseInt(storeId)+1) + '.jpg');
-  reviewPicture.setAttribute('width', '500');
+  reviewPicture.setAttribute('width', '500px');
   reviewPosition.appendChild(reviewPicture);
 
   // Review block header

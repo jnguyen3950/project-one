@@ -6,7 +6,7 @@ var position = document.getElementById('mediaBlock');
 var reviewBtn = document.getElementById('reviewBtn');
 var addNewButton = document.getElementById('addNewPlace');
 var newPlaceForm = document.getElementById('newPlaceForm');
-var reviewPosition = document.getElementById('userComment');
+var reviewPosition = document.getElementById('reviewPosition');
 
 listReview();
 
