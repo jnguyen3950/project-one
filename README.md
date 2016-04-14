@@ -4,6 +4,8 @@
  - User can search for review using name, category, or recommended place.
  - User can review, give star rating to stores and react other user comments.
 
+## Click [here](https://jnguyen-woop.herokuapp.com/) to see this app on **heroku**:
+
 ## Homepage
 ![Woop homepage](https://github.com/jnguyen3950/woop/blob/master/project-img/screenshot1.png)
 
